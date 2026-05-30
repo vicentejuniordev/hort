@@ -1,0 +1,51 @@
+@import url('../../styles/global.css');
+
+.img-logo {
+  width: 200px;
+  justify-content: center;
+  display: flex;
+  margin: 0 auto;
+  margin-top: 90px;
+}
+
+.container {
+  display: flex;
+  width: 80%;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  border-radius: 15px;
+  border: 2px solid #dddcdc;
+  padding: 20px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #fff;
+}
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.subtitle {
+  font-size: 10px;
+  font-weight: 200;
+}
+
+.checkbox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 12px;
+  margin-top: 10px;
+  margin-right: 230px;
+}
+

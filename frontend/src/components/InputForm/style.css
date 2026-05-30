@@ -1,0 +1,29 @@
+@import url('../../styles/global.css');
+.input-box {
+  position: relative;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.input-box img {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 17px;
+}
+
+label {
+  margin-bottom: 5px;
+  font-weight: 400;
+  font-size: 14px;
+}
+.input-box input {
+  width: 100%;
+  padding: 10px;
+  padding-left: 30px;
+  border: 2px solid #dddcdc;
+  border-radius: 10px;
+  background-color: #eff8f1;
+  box-sizing: border-box;
+}

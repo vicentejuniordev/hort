@@ -1,8 +1,9 @@
 import InitialScreen from './pages/InitialScreen/InitialScreen';
+import RegisterUser from './pages/RegisterUser/RegisterUser';
 
 function App() {
   return (
-    <InitialScreen />
+    <RegisterUser />
   );
 } 
 
