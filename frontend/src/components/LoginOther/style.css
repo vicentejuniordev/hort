@@ -1,0 +1,24 @@
+@import url('../../styles/global.css');
+
+img{
+    width: 60%;
+}
+
+.login-others-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.login-others-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 10%;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+}
