@@ -1,10 +1,11 @@
-import InitialScreen from './pages/InitialScreen/InitialScreen';
+import LoginScreen from './pages/ClientLogin/LoginScreen';
 
-function App() {
+export default function App() {
   return (
-    <InitialScreen />
+    <LoginScreen
+      onVoltar={() => {}}
+      onFazerLogin={() => {}}
+      onCriarConta={() => {}}
+    />
   );
-} 
-
-
-export default App
+}
