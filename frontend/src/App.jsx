@@ -1,11 +1,11 @@
-import InitialScreen from './pages/InitialScreen/InitialScreen';
-import RegisterUser from './pages/RegisterUser/RegisterUser';
+import LoginScreen from './pages/ClientLogin/LoginScreen';
 
-function App() {
+export default function App() {
   return (
-    <RegisterUser />
+    <LoginScreen
+      onVoltar={() => {}}
+      onFazerLogin={() => {}}
+      onCriarConta={() => {}}
+    />
   );
-} 
-
-
-export default App
+}

@@ -1,0 +1,262 @@
+/* ===== LOGIN SCREEN ===== */
+
+.login-wrapper {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 16px 32px;
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+}
+
+/* Back button */
+.login-back-btn {
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  font-size: 15px;
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  cursor: pointer;
+  padding: 4px 0;
+  margin-bottom: 8px;
+}
+
+.login-back-arrow {
+  font-size: 18px;
+}
+
+/* Header / Logo */
+.login-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.login-logo {
+  margin-bottom: 4px;
+}
+
+.login-brand {
+  font-size: 26px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0;
+  letter-spacing: 2px;
+}
+
+/* Card */
+.login-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 32px 24px 24px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  box-sizing: border-box;
+}
+
+.login-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 6px;
+  text-align: center;
+}
+
+.login-subtitle {
+  font-size: 13px;
+  color: #757575;
+  text-align: center;
+  margin: 0 0 24px;
+  line-height: 1.5;
+}
+
+/* Form */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.login-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.login-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #333;
+}
+
+.login-input-wrapper {
+  display: flex;
+  align-items: center;
+  border: 1.5px solid #E0E0E0;
+  border-radius: 10px;
+  padding: 0 12px;
+  background: #fff;
+  height: 50px;
+  gap: 10px;
+  box-sizing: border-box;
+}
+
+.login-input-wrapper:focus-within {
+  border-color: #4CAF50;
+}
+
+.login-input-icon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.login-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  background: transparent;
+}
+
+.login-input::placeholder {
+  color: #BDBDBD;
+}
+
+.login-eye-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+/* Forgot password */
+.login-forgot {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -8px;
+}
+
+.login-forgot-btn {
+  background: none;
+  border: none;
+  font-size: 13px;
+  font-family: 'Poppins', sans-serif;
+  color: #4CAF50;
+  cursor: pointer;
+  padding: 0;
+  font-weight: 500;
+}
+
+/* Submit button */
+.login-submit-btn {
+  width: 100%;
+  height: 52px;
+  background-color: #2E7D32;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 4px;
+}
+
+.login-submit-btn:hover {
+  background-color: #1B5E20;
+}
+
+/* Divider */
+.login-divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 24px 0 16px;
+}
+
+.login-divider-line {
+  flex: 1;
+  height: 1px;
+  background-color: #E0E0E0;
+}
+
+.login-divider-text {
+  font-size: 13px;
+  color: #9E9E9E;
+  white-space: nowrap;
+}
+
+/* Social buttons */
+.login-social {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.login-social-btn {
+  width: 64px;
+  height: 48px;
+  background: #fff;
+  border: 1.5px solid #E0E0E0;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.login-social-btn:hover {
+  border-color: #BDBDBD;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+/* Register link */
+.login-register-text {
+  font-size: 13px;
+  color: #757575;
+  text-align: center;
+  margin: 0;
+}
+
+.login-register-link {
+  background: none;
+  border: none;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #4CAF50;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* Terms footer */
+.login-terms {
+  font-size: 11px;
+  color: #9E9E9E;
+  text-align: center;
+  margin-top: 20px;
+  line-height: 1.6;
+  max-width: 320px;
+}
+
+.login-terms-link {
+  color: #4CAF50;
+  text-decoration: underline;
+  font-weight: 500;
+}
