@@ -43,3 +43,9 @@ img {
     margin-top: 0.5rem;
     color: rgb(200, 200, 200);
 }
+
+.notifications-button{
+    background: none;
+    border: none;
+    cursor: pointer;
+}

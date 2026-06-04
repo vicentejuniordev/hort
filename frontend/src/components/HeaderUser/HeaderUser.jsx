@@ -2,9 +2,15 @@ import profileIcon from '../../assets/icons/profile-icon.png';
 import './style.css';
 import notificationsIcon from '../../assets/icons/notificacao.png';
 import localIcon from '../../assets/icons/localizacao.png';
+import NotificationModal from '../NotificationsModal/NotificationModal';
+import {useState} from 'react';
 
 export default function HeaderUser() {
+
+    const [openModal, setOpenModal] = useState(false);
+
     return (
+        <>
         <header className="header-user">
             <div className="header-user-container">
                 <div className="user-info-container">
@@ -15,7 +21,9 @@ export default function HeaderUser() {
                 </div>
             </div>
                <div     className='notifications-container'>
-                <img id='notifications' src={notificationsIcon} alt="Notifications" />
+                <button className='notifications-button' onClick={() => setOpenModal(true)}>
+                    <img id='notifications' src={notificationsIcon} alt="Notifications" />
+                </button>
                </div>
             </div>
             <div className="header-user-bottom">
@@ -24,5 +32,7 @@ export default function HeaderUser() {
             </div>
             <hr className="header-user-hr" />
         </header>
+        <NotificationModal isOpen={openModal} onClose={() => setOpenModal(false)} />
+        </>
     );
 }
