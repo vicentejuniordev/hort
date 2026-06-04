@@ -1,11 +1,10 @@
-import LoginScreen from './pages/ClientLogin/LoginScreen';
+import InitialScreenClient from './pages/InitialScreenClient/InitialScreenClient';
+import {BrowserRouter} from 'react-router-dom';
 
 export default function App() {
   return (
-    <LoginScreen
-      onVoltar={() => {}}
-      onFazerLogin={() => {}}
-      onCriarConta={() => {}}
-    />
+    <BrowserRouter>
+      <InitialScreenClient />
+    </BrowserRouter>
   );
 }
