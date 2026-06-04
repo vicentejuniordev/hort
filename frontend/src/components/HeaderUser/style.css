@@ -1,0 +1,45 @@
+@import url('../../styles/global.css');
+
+img {
+    width: 15%;
+    height: auto;
+}
+
+.user-info-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+}
+
+#notifications {
+    width: 25px;
+}
+
+
+.header-user-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem;
+    justify-content: center;
+    font-weight: 500;
+    margin-top: 0.1rem;
+}
+
+#img-local {
+    width: 20px;
+}
+
+.header-user-bottom{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-left: 2rem;
+    font-size: 0.875rem;
+}
+
+.header-user-hr {
+    margin-top: 0.5rem;
+    color: rgb(200, 200, 200);
+}
