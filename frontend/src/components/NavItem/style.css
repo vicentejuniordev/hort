@@ -1,0 +1,54 @@
+@import url('../../styles/global.css');
+
+.nav-item-link,
+.nav-item-button {
+    border: none;
+    background: none;
+    text-decoration: none;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 8px 0;
+}
+
+.nav-item-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 4px;
+
+    padding: 8px 16px;
+    border-radius: 12px;
+
+    transition: 0.2s ease;
+}
+
+.nav-item-content:hover {
+    background-color: #f0fdf4;
+}
+
+.nav-item-content.active {
+    background-color: #16a34a;
+}
+
+.nav-icon {
+    width: 20px;
+    height: 20px;
+
+    color: #64748b;
+}
+
+.nav-item-content span {
+    font-size: 12px;
+    font-weight: 500;
+    color: #64748b;
+}
+
+.nav-item-content.active .nav-icon,
+.nav-item-content.active span {
+    color: white;
+}
