@@ -1,0 +1,37 @@
+.category-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 10px 16px;
+  border-radius: 12px;
+  border: 2px solid #e2e8f0;
+
+  background: #ffffff;
+  color: #475569;
+
+  white-space: nowrap;
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.category-button:hover {
+  border-color: #86efac;
+}
+
+.category-button.active {
+  background: #f0fdf4;
+  border-color: #22c55e;
+  color: #15803d;
+}
+
+.category-button span {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.category-icon {
+  width: 16px;
+  height: 16px;
+}
