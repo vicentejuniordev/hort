@@ -2,7 +2,7 @@ import logo from '../../assets/icons/logo.png';
 import './style.css';
 import InputForm from '../../components/InputForm/InputForm';
 import userIcon from '../../assets/icons/user-icon.png';
-import userIcon from '../../assets/icons/building-icon.png';
+import buildingIcon from '../../assets/icons/building-icon.png';
 import StartButton from '../../components/StartButton/StartButtom';
 import LoginOther from '../../components/LoginOther/LoginOther';
 import emailIcon from '../../assets/icons/email-icon.png';

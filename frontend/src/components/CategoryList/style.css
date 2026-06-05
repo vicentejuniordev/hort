@@ -1,6 +1,6 @@
 .category-list {
   display: flex;
-  gap: 12px;
+  gap: 5px;
 
   overflow-x: auto;
   padding-bottom: 8px;
