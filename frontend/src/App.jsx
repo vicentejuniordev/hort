@@ -1,11 +1,9 @@
-import LoginScreen from './pages/ClientLogin/LoginScreen';
-
+import {BrowserRouter} from 'react-router-dom';
+import AppRoutes from './routes/AppRoutes';
 export default function App() {
   return (
-    <LoginScreen
-      onVoltar={() => {}}
-      onFazerLogin={() => {}}
-      onCriarConta={() => {}}
-    />
+    <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
   );
 }

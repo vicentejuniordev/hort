@@ -1,0 +1,25 @@
+@import url('../../styles/global.css');
+
+.search-container {
+  position: relative;
+  width: 60%;
+  margin: 10px auto 0;
+}
+
+.search-input {
+  width: 80%;
+  padding: 10px 10px 10px 40px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.search-icon {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+}

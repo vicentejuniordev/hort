@@ -1,0 +1,27 @@
+@import url('../../styles/global.css');
+
+.initial-screen-client {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.text-content {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 500;
+}
+
+.view-more {
+    display: flex;
+    align-items: center;
+    border: none;
+    background: none;
+    gap: 5px;
+    font-size: 0.875rem;
+    color: #22c55e;
+    cursor: pointer;
+}
