@@ -1,0 +1,257 @@
+@import url('../../styles/global.css');
+
+.basket-card {
+  background: #ffffff;
+  border: 2px solid #bbf7d0;
+  border-radius: 12px;
+
+  padding: 12px;
+
+  box-shadow: 0 3px 10px rgba(15, 23, 42, 0.08);
+  transition: 0.2s ease;
+}
+
+.basket-card:hover {
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.12);
+}
+
+.basket-card.disabled {
+  border-color: #e2e8f0;
+  opacity: 0.75;
+}
+
+.basket-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+
+  margin-bottom: 8px;
+}
+
+.basket-image-box {
+  width: 38px;
+  height: 38px;
+
+  background: #f0fdf4;
+  border-radius: 8px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.basket-image-box img {
+  width: 28px;
+  height: 28px;
+  object-fit: cover;
+}
+
+.basket-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.basket-title-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 6px;
+
+  margin-bottom: 4px;
+}
+
+.basket-title-row h3 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.basket-status {
+  padding: 2px 8px;
+  border-radius: 999px;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  white-space: nowrap;
+}
+
+.status-active {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.status-paused {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.status-canceled {
+  background: #f1f5f9;
+  color: #64748b;
+}
+
+.basket-price {
+  font-size: 16px;
+  font-weight: 700;
+  color: #15803d;
+}
+
+.basket-price span {
+  margin-left: 4px;
+
+  font-size: 11px;
+  font-weight: 400;
+  color: #64748b;
+}
+
+.basket-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  margin-bottom: 8px;
+}
+
+.basket-detail-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  font-size: 12px;
+  color: #475569;
+}
+
+.basket-detail-item strong {
+  color: #0f172a;
+  font-weight: 600;
+}
+
+.detail-icon {
+  width: 24px;
+  height: 24px;
+
+  border-radius: 6px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+}
+
+.detail-icon.gray {
+  background: #f1f5f9;
+}
+
+.detail-icon.green {
+  background: #dcfce7;
+}
+
+.detail-icon.gray .icon {
+  color: #475569;
+}
+
+.detail-icon.green .icon {
+  color: #16a34a;
+}
+
+.icon {
+  width: 12px;
+  height: 12px;
+}
+
+.basket-products-info {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.basket-products-info span {
+  color: #64748b;
+}
+
+.basket-products-info span:first-of-type {
+  color: #94a3b8;
+}
+
+.basket-actions {
+  display: flex;
+  gap: 4px;
+}
+
+.btn-main,
+.btn-warning,
+.btn-danger,
+.btn-disabled {
+  border: none;
+  border-radius: 10px;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: 0.2s ease;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.btn-main {
+  flex: 1;
+
+  padding: 8px;
+
+  background: #16a34a;
+  color: #ffffff;
+}
+
+.btn-main:hover {
+  background: #15803d;
+}
+
+.btn-warning {
+  padding: 8px 10px;
+
+  background: #fffbeb;
+  color: #b45309;
+}
+
+.btn-warning:hover {
+  background: #fef3c7;
+}
+
+.btn-danger {
+  padding: 8px 10px;
+
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+.btn-danger:hover {
+  background: #fee2e2;
+}
+
+.btn-disabled {
+  flex: 1;
+
+  padding: 8px;
+
+  background: #e2e8f0;
+  color: #94a3b8;
+
+  cursor: not-allowed;
+}
+
+.btn-icon {
+  width: 14px;
+  height: 14px;
+}
