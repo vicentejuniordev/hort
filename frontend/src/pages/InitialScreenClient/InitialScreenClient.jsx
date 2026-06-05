@@ -97,7 +97,7 @@ export default function InitialScreenClient() {
         toggleFavorite={toggleFavorite}
       />
 
-      <BottomNavigation setIsSidebarOpen={setIsSidebarOpen} />
+      <BottomNavigation activeItem="home" setIsSidebarOpen={setIsSidebarOpen} />
     </div>
   );
 }
