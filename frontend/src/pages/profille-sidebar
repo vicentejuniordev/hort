@@ -1,0 +1,108 @@
+import "./style.css"; 
+import { 
+  FiUser, 
+  FiCreditCard, 
+  FiHeart, 
+  FiBell, 
+  FiSettings, 
+  FiLogOut, 
+  FiChevronRight, 
+  FiX 
+} from "react-icons/fi";
+
+function Sidebar({ onClose }) { 
+  const menuItems = [ 
+    { 
+      icon: <FiUser />, 
+      title: "Minha Conta", 
+      subtitle: "Dados pessoais e preferências", 
+    }, 
+    { 
+      icon: <FiCreditCard />, 
+      title: "Pagamento", 
+      subtitle: "Cartões e métodos de pagamento", 
+    }, 
+    { 
+      icon: <FiHeart />, 
+      title: "Favoritos", 
+      subtitle: "Hortas e produtos favoritos", 
+      badge: 3, 
+    }, 
+    { 
+      icon: <FiBell />, 
+      title: "Notificações", 
+      subtitle: "Alertas e atualizações", 
+      badge: 5, 
+    }, 
+    { 
+      icon: <FiSettings />, 
+      title: "Configurações", 
+      subtitle: "Preferências gerais", 
+    }, 
+  ]; 
+
+  return (    
+    <aside className="sidebar">
+      <div className="sidebar-header">
+        <button className="close-btn" onClick={onClose}>
+          <FiX />
+        </button>
+
+        <img src="https://i.pravatar.cc/150" alt="Usuário" className="avatar" />
+
+        <h2>João da Silva</h2>
+
+        <p className="email">
+          joaozinho@gmail.com
+        </p>
+
+        <span className="premium">
+          Membro Premium
+        </span>
+      </div>
+
+      <div className="sidebar-content">
+        {menuItems.map((item, index) => (
+          <div key={index} className="menu-item">
+            <div className="menu-icon">
+              {item.icon}
+            </div>
+
+            <div className="menu-text">
+              <h4>{item.title}</h4>
+              <p>{item.subtitle}</p>
+            </div>
+
+            {item.badge && (
+              <span className="badge">
+                {item.badge}
+              </span> 
+            )}
+
+            <FiChevronRight className="arrow" />
+          </div>
+        ))}
+
+        <div className="divider"></div>
+
+        <div className="menu-item logout">
+          <div className="menu-icon">
+            <FiLogOut />
+          </div>
+
+          <div className="menu-text">
+            <h4>Sair</h4>
+            <p>Encerrar sessão</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="sidebar-footer">
+        <p>HORT ® 2026</p>
+        <span>Versão 1.0.0</span>
+      </div>
+    </aside>
+  ); 
+} 
+
+export default Sidebar;
