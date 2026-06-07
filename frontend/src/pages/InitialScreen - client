@@ -1,0 +1,160 @@
+import "./style.css";
+
+export default function SideBarClientInformation() {
+  return (
+    <div className="sidebar">
+
+      <div className="sidebar-header">
+
+        <button className="close-btn">
+          ✕
+        </button>
+
+        <div className="profile-container">
+          <img
+            src="https://i.pravatar.cc/100"
+            alt="Usuário"
+            className="profile-image"
+          />
+
+          <div className="online-status"></div>
+        </div>
+
+        <h2>João da Silva</h2>
+
+        <p className="email">
+          ✉ joaozinho@gmail.com
+        </p>
+
+        <span className="premium-badge">
+          Membro Premium
+        </span>
+
+      </div>
+
+      <div className="menu-container">
+
+        <button className="menu-item">
+          <div className="icon-box">👤</div>
+
+          <div className="menu-info">
+            <span className="menu-title">
+              Minha Conta
+            </span>
+
+            <span className="menu-subtitle">
+              Dados pessoais e preferências
+            </span>
+          </div>
+
+          <span className="arrow">›</span>
+        </button>
+
+        <button className="menu-item">
+          <div className="icon-box">💳</div>
+
+          <div className="menu-info">
+            <span className="menu-title">
+              Pagamento
+            </span>
+
+            <span className="menu-subtitle">
+              Cartões e métodos de pagamento
+            </span>
+          </div>
+
+          <span className="arrow">›</span>
+        </button>
+
+        <button className="menu-item">
+          <div className="icon-box">♡</div>
+
+          <div className="menu-info">
+            <div className="title-with-badge">
+              <span className="menu-title">
+                Favoritos
+              </span>
+
+              <span className="badge">
+                3
+              </span>
+            </div>
+
+            <span className="menu-subtitle">
+              Hortas e produtores favoritos
+            </span>
+          </div>
+
+          <span className="arrow">›</span>
+        </button>
+
+        <button className="menu-item">
+          <div className="icon-box">🔔</div>
+
+          <div className="menu-info">
+            <div className="title-with-badge">
+              <span className="menu-title">
+                Notificações
+              </span>
+
+              <span className="badge">
+                5
+              </span>
+            </div>
+
+            <span className="menu-subtitle">
+              Alertas e atualizações
+            </span>
+          </div>
+
+          <span className="arrow">›</span>
+        </button>
+
+        <hr />
+
+        <button className="menu-item">
+          <div className="icon-box">⚙️</div>
+
+          <div className="menu-info">
+            <span className="menu-title">
+              Configurações
+            </span>
+
+            <span className="menu-subtitle">
+              Preferências gerais
+            </span>
+          </div>
+
+          <span className="arrow">›</span>
+        </button>
+
+        <button className="menu-item logout">
+          <div className="icon-box logout-icon">
+            ↩
+          </div>
+
+          <div className="menu-info">
+            <span className="menu-title">
+              Sair
+            </span>
+
+            <span className="menu-subtitle">
+              Encerrar sessão
+            </span>
+          </div>
+
+          <span className="arrow">
+            ›
+          </span>
+        </button>
+
+      </div>
+
+      <div className="sidebar-footer">
+        <p>HORT © 2026</p>
+        <p>Versão 1.0.0</p>
+      </div>
+
+    </div>
+  );
+}
