@@ -1,0 +1,181 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.sidebar {
+  width: 190px;
+  height: 100vh;
+  background: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  font-family: "Poppins", sans-serif;
+}
+
+.sidebar-header {
+  background: #06a52c;
+  height: 200px;
+  padding: 15px;
+  text-align: center;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  border: none;
+  background: transparent;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.profile-container {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 12px;
+}
+
+.profile-image {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 2px solid #9fe6ae;
+  object-fit: cover;
+}
+
+.online-status {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: #39ff6b;
+  border-radius: 50%;
+  right: 3px;
+  bottom: 5px;
+  border: 2px solid white;
+}
+
+.sidebar-header h2 {
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.email {
+  color: white;
+  font-size: 11px;
+  margin-top: 4px;
+}
+
+.premium-badge {
+  margin-top: 10px;
+  display: inline-block;
+  background: rgba(255,255,255,.25);
+  color: white;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 10px;
+}
+
+.menu-container {
+  flex: 1;
+  padding-top: 10px;
+}
+
+.menu-item {
+  width: 100%;
+  border: none;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.menu-item:hover {
+  background: #ececec;
+}
+
+.icon-box {
+  width: 30px;
+  height: 30px;
+  background: #ebebeb;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+}
+
+.menu-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.menu-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: #333;
+}
+
+.menu-subtitle {
+  font-size: 9px;
+  color: #8a8a8a;
+}
+
+.title-with-badge {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.badge {
+  width: 16px;
+  height: 16px;
+  background: #21c45d;
+  color: white;
+  border-radius: 50%;
+  font-size: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrow {
+  color: #b6b6b6;
+  font-size: 18px;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #d9d9d9;
+  margin: 10px;
+}
+
+.logout .menu-title,
+.logout .menu-subtitle,
+.logout .arrow {
+  color: #ff4c4c;
+}
+
+.logout-icon {
+  color: #ff4c4c;
+}
+
+.sidebar-footer {
+  text-align: center;
+  padding: 12px;
+  border-top: 1px solid #ddd;
+}
+
+.sidebar-footer p {
+  font-size: 9px;
+  color: #8c8c8c;
+  line-height: 1.5;
+}
