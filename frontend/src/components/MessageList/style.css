@@ -1,0 +1,53 @@
+.messages-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.img-profile {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin-right: 12px;
+}
+
+
+.message-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+
+  border-bottom: 2px solid #ddd;
+  transition: background-color 0.2s ease;
+}
+
+.message-item.unread {
+  background-color: #f5fff5; /* leve destaque para não lidas */
+}
+
+.message-item .icon {
+  font-size: 22px;
+  margin-right: 12px;
+}
+
+.message-item .content {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.message-item .content strong {
+  display: block;
+  font-size: 14px;
+  color: #333;
+}
+
+.message-item .content p {
+  font-size: 13px;
+  color: #666;
+  margin: 2px 0 0;
+}
+
+.message-item .time {
+  font-size: 12px;
+  color: #32981d;
+}
