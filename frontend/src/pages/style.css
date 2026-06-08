@@ -1,0 +1,41 @@
+.profile-container {
+  height: 100vh;
+}
+
+.sidebar {
+  width: 320px;
+  height: 100%;
+  background: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.user-header {
+  background: #06b34f;
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+.premium {
+  display: inline-block;
+  margin-top: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 5px 12px;
+  border-radius: 20px;
+}
+
+.menu-item {
+  padding: 18px 24px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+}
+
+.logout {
+  color: #e53935;
+}
