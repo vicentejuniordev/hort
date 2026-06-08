@@ -1,0 +1,22 @@
+@import url('../../styles/global.css');
+
+.plans-tab {
+  padding: 16px;
+}
+
+.plans-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.plans-header h2 {
+  margin: 0 0 8px;
+  font-size: 24px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.plans-header p {
+  margin: 0;
+  color: #64748b;
+}

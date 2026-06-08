@@ -1,0 +1,28 @@
+@import url('../../styles/global.css');
+
+.products-tab {
+  padding: 16px;
+}
+
+.products-header {
+  margin-bottom: 16px;
+}
+
+.products-header h2 {
+  margin: 0 0 4px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.products-header p {
+  margin: 0;
+  font-size: 14px;
+  color: #64748b;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}

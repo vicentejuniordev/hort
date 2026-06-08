@@ -9,30 +9,21 @@ export default function DetailHeader({
 }) {
   return (
     <header className="detail-header">
-      <button
-        className="header-button"
-        onClick={onBack}
-      >
-        <ArrowLeft className="header-icon" />
+      <button className="detail-header-button" onClick={onBack}>
+        <ArrowLeft className="detail-header-icon" />
       </button>
 
-      <div className="header-actions">
-        <button
-          className="header-button"
-          onClick={onToggleFavorite}
-        >
+      <div className="detail-header-actions">
+        <button className="detail-header-button" onClick={onToggleFavorite}>
           <Heart
-            className={`header-icon favorite-icon ${
+            className={`detail-header-icon ${
               isFavorite ? "favorite-active" : ""
             }`}
           />
         </button>
 
-        <button
-          className="header-button"
-          onClick={onShare}
-        >
-          <Share2 className="header-icon" />
+        <button className="detail-header-button" onClick={onShare}>
+          <Share2 className="detail-header-icon" />
         </button>
       </div>
     </header>

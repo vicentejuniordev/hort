@@ -6,6 +6,7 @@ import RegisterProducer from '../pages/RegisterProducer/RegisterProducer';
 import SelectProfile from '../pages/SelectProfile/SelectProfile';
 import InitialScreenClient from '../pages/InitialScreenClient/InitialScreenClient';
 import BasketScreen from '../pages/BasketScreen/BasketScreen';
+import ViewHorta from '../pages/ViewHorta/ViewHorta';
 export default function AppRoutes() {
   return (
     <Routes>
@@ -16,6 +17,7 @@ export default function AppRoutes() {
       <Route path="/select-profile" element={<SelectProfile />} />
       <Route path="/home-client" element={<InitialScreenClient />} />
       <Route path="/minhas-cestas" element={<BasketScreen />} />
+      <Route path="/view-horta" element={<ViewHorta />} />
     </Routes>
   );
 }
