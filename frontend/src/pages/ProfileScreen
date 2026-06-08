@@ -1,0 +1,35 @@
+// ProfileScreen.jsx
+import "./style.css";
+
+export default function ProfileScreen() {
+  return (
+    <div className="profile-container">
+      <aside className="sidebar">
+        <div className="user-header">
+          <img
+            src="https://via.placeholder.com/80"
+            alt="avatar"
+            className="avatar"
+          />
+
+          <h3>João da Silva</h3>
+          <p>joaozinho@gmail.com</p>
+
+          <span className="premium">Membro Premium</span>
+        </div>
+
+        <div className="menu">
+          <div className="menu-item">Minha Conta</div>
+          <div className="menu-item">Pagamento</div>
+          <div className="menu-item">Favoritos</div>
+          <div className="menu-item">Notificações</div>
+          <div className="menu-item">Configurações</div>
+
+          <div className="menu-item logout">
+            Sair
+          </div>
+        </div>
+      </aside>
+    </div>
+  );
+}
