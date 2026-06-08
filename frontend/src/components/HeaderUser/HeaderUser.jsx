@@ -14,7 +14,7 @@ export default function HeaderUser() {
         <header className="header-user">
             <div className="header-user-container">
                 <div className="user-info-container">
-                <img src={profileIcon} alt="Profile" className="img-profile" />
+                <img className='user-avatar' src={profileIcon} alt="Profile" />
                 <div className="header-user-info">
                     <p style={{ fontWeight: 300 }}>Olá!👋</p>
                     <p>Bem-vindo!</p>

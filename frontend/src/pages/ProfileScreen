@@ -25,9 +25,7 @@ export default function ProfileScreen() {
           <div className="menu-item">Notificações</div>
           <div className="menu-item">Configurações</div>
 
-          <div className="menu-item logout">
-            Sair
-          </div>
+          <div className="menu-item logout">Sair</div>
         </div>
       </aside>
     </div>

@@ -29,12 +29,13 @@ img {
 
 #img-local {
     width: 20px;
+    height: auto;
 }
 
 .header-user-bottom{
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.5rem;
     margin-left: 2rem;
     font-size: 0.875rem;
 }
@@ -49,4 +50,10 @@ img {
     background: none;
     border: none;
     cursor: pointer;
+}
+
+.header-user-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
 }
