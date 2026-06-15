@@ -1,0 +1,56 @@
+@import url('../../styles/global.css');
+
+.floating-cart-button {
+  position: fixed;
+  right: 16px;
+  bottom: 96px;
+  z-index: 50;
+
+  width: 56px;
+  height: 56px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: #16a34a;
+  color: #ffffff;
+
+  box-shadow: 0 12px 28px rgba(22, 163, 74, 0.35);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+}
+
+.floating-cart-button:hover {
+  background: #15803d;
+}
+
+.floating-cart-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.floating-cart-button span {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+
+  width: 24px;
+  height: 24px;
+
+  border-radius: 50%;
+  border: 2px solid #16a34a;
+
+  background: #ffffff;
+  color: #15803d;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

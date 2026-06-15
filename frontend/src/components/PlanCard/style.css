@@ -1,0 +1,175 @@
+@import url('../../styles/global.css');
+
+.plan-card {
+    position: relative;
+
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 16px;
+
+    border: 2px solid #e2e8f0;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+
+    transition: all 0.2s ease;
+}
+
+.plan-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.12);
+}
+
+.plan-card.recommended {
+    border-color: #16a34a;
+}
+
+.plan-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    padding: 4px 14px;
+
+    background: #16a34a;
+    color: white;
+
+    border-radius: 999px;
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.plan-header {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.plan-icon-box {
+    width: 48px;
+    height: 48px;
+
+    border-radius: 12px;
+
+    background: #f0fdf4;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+}
+
+.plan-icon-box img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+}
+
+.plan-icon {
+    width: 28px;
+    height: 28px;
+    color: #16a34a;
+}
+
+.plan-info {
+    flex: 1;
+}
+
+.plan-info h3 {
+    margin: 0 0 4px;
+
+    font-size: 18px;
+    font-weight: 700;
+
+    color: #0f172a;
+}
+
+.plan-info p {
+    margin: 0;
+
+    font-size: 14px;
+    color: #64748b;
+}
+
+.plan-price {
+    margin-bottom: 20px;
+}
+
+.plan-price strong {
+    font-size: 30px;
+    font-weight: 700;
+
+    color: #0f172a;
+}
+
+.plan-price span {
+    margin-left: 4px;
+
+    font-size: 14px;
+    color: #64748b;
+}
+
+.plan-features {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    margin-bottom: 20px;
+}
+
+.plan-feature {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    font-size: 14px;
+    color: #334155;
+}
+
+.plan-feature-icon {
+    width: 18px;
+    height: 18px;
+
+    color: white;
+    background: #16a34a;
+
+    border-radius: 50%;
+    padding: 2px;
+
+    flex-shrink: 0;
+}
+
+.plan-button {
+    width: 100%;
+
+    padding: 12px;
+
+    border-radius: 12px;
+    border: none;
+
+    background: #16a34a;
+    color: white;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: background 0.2s ease;
+}
+
+.plan-button:hover {
+    background: #15803d;
+}
+
+.plan-card:not(.recommended) .plan-button {
+    background: white;
+    color: #16a34a;
+    border: 2px solid #16a34a;
+}
+
+.plan-card:not(.recommended) .plan-button:hover {
+    background: #f0fdf4;
+}
