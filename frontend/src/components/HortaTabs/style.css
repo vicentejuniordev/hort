@@ -1,0 +1,36 @@
+@import url('../../styles/global.css');
+
+.horta-tabs {
+  position: sticky;
+  top: 65px;
+  z-index: 40;
+
+  display: flex;
+
+  margin-top: 16px;
+  padding: 0 16px;
+
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.horta-tab {
+  flex: 1;
+
+  padding: 12px 0;
+
+  border: none;
+  border-bottom: 2px solid transparent;
+  background: transparent;
+
+  font-size: 14px;
+  font-weight: 700;
+  color: #64748b;
+
+  cursor: pointer;
+}
+
+.horta-tab.active {
+  color: #15803d;
+  border-bottom-color: #16a34a;
+}

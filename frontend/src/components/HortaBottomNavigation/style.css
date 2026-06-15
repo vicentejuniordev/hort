@@ -1,0 +1,74 @@
+@import url('../../styles/global.css');
+
+
+.horta-bottom-nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 50;
+
+  padding: 12px 16px;
+
+  background: #ffffff;
+  border-top: 1px solid #e2e8f0;
+  box-shadow: 0 -8px 24px rgba(15, 23, 42, 0.08);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.horta-bottom-nav a,
+.horta-bottom-nav button {
+  border: none;
+  background: transparent;
+  text-decoration: none;
+
+  color: #94a3b8;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+
+  cursor: pointer;
+}
+
+.horta-bottom-nav a:hover,
+.horta-bottom-nav button:hover {
+  color: #475569;
+}
+
+.bottom-nav-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.horta-bottom-nav span {
+  font-size: 12px;
+}
+
+.bottom-cart-wrapper {
+  position: relative;
+}
+
+.bottom-cart-wrapper strong {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+
+  width: 20px;
+  height: 20px;
+
+  border-radius: 50%;
+  background: #16a34a;
+  color: #ffffff;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

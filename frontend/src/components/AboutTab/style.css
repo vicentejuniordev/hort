@@ -1,0 +1,87 @@
+@import url('../../styles/global.css');
+
+.about-tab {
+  padding: 16px;
+}
+
+.about-card {
+  padding: 20px;
+  border-radius: 12px;
+
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+}
+
+.about-card h2 {
+  margin: 0 0 12px;
+  font-size: 18px;
+  color: #0f172a;
+}
+
+.about-card p {
+  margin: 0 0 16px;
+  color: #475569;
+  line-height: 1.6;
+}
+
+.about-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.about-info-item {
+  display: flex;
+  gap: 12px;
+}
+
+.about-info-item > div {
+  width: 40px;
+  height: 40px;
+
+  border-radius: 10px;
+  background: #dcfce7;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+}
+
+.about-info-icon {
+  width: 20px;
+  height: 20px;
+  color: #16a34a;
+}
+
+.about-info-item section {
+  display: flex;
+  flex-direction: column;
+}
+
+.about-info-item strong {
+  font-size: 14px;
+  color: #0f172a;
+}
+
+.about-info-item span {
+  font-size: 14px;
+  color: #64748b;
+}
+
+.map-button {
+  width: 100%;
+  margin-top: 16px;
+  padding: 16px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: #16a34a;
+  color: #ffffff;
+
+  font-weight: 700;
+  cursor: pointer;
+}

@@ -1,0 +1,9 @@
+.horta-details-page {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #f8fafc, #ffffff);
+  padding-bottom: 90px;
+}
+
+.horta-details-content {
+  padding-bottom: 24px;
+}
