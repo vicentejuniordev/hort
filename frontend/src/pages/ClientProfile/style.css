@@ -1,0 +1,145 @@
+@import url('../../styles/global.css');
+
+/* ── Layout ── */
+.psc-screen {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f8fafc;
+}
+
+/* ── Hero ── */
+.psc-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2.5rem 1.25rem 1.5rem;
+  background-color: #ffffff;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.psc-avatar-wrapper {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  border: 3px solid #22c55e;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0fdf4;
+  margin-bottom: 0.875rem;
+}
+
+.psc-avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.psc-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 0.25rem;
+}
+
+.psc-edit-btn {
+  background: none;
+  border: none;
+  color: #22c55e;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* ── Content ── */
+.psc-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 1.25rem 1.125rem 6rem;
+}
+
+/* ── Sections ── */
+.psc-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 0.75rem;
+}
+
+.psc-section-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #22c55e;
+  letter-spacing: 0.02em;
+  padding: 0 0.25rem;
+}
+
+/* ── Menu Group ── */
+.psc-menu-group {
+  background-color: #ffffff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.psc-menu-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 1rem 1rem;
+  background: none;
+  border: none;
+  border-bottom: 1px solid #f1f5f9;
+  cursor: pointer;
+  text-align: left;
+}
+
+.psc-menu-item:last-child {
+  border-bottom: none;
+}
+
+.psc-menu-emoji {
+  font-size: 1.25rem;
+  width: 32px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.psc-menu-title {
+  flex: 1;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #1e293b;
+}
+
+/* Badge */
+.psc-badge {
+  background-color: #22c55e;
+  color: #ffffff;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  padding: 0.15rem 0.45rem;
+  border-radius: 20px;
+  min-width: 20px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: 0.25rem;
+}
+
+.psc-chevron {
+  flex-shrink: 0;
+}
+
+/* ── Logout ── */
+.psc-logout-group {
+  background-color: #fff8f8;
+}
+
+.psc-logout-title {
+  color: #ef4444;
+}
