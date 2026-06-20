@@ -11,6 +11,7 @@ import ChatCliente from '../pages/ChatCliente/ChatCliente';
 import MessageDetailScreen from '../pages/MessageDetailScreen/MessageDetailScreen';
 import ProfileScreen from '../pages/ProfileScreen/ProfileScreen';
 import CartScreen from '../pages/CartScreen/CartScreen';
+import ProducerDashboard from '../pages/ProducerDashboard/ProducerDashboard';
 export default function AppRoutes() {
   return (
     <Routes>
@@ -26,6 +27,7 @@ export default function AppRoutes() {
       <Route path="/mensagens/:id" element={<MessageDetailScreen />} />
       <Route path="/perfil" element={<ProfileScreen />} />
       <Route path="/carrinho/:hortaId" element={<CartScreen />} />
+      <Route path="/producer-dashboard" element={<ProducerDashboard />} />
     </Routes>
   );
 }
