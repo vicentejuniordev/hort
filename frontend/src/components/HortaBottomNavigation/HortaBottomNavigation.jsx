@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Home, ShoppingBasket, User } from "lucide-react";
+import { Home, ShoppingBasket } from "lucide-react";
 import "./style.css";
 
 export default function HortaBottomNavigation({
@@ -20,11 +20,6 @@ export default function HortaBottomNavigation({
         </div>
         <span>Carrinho</span>
       </button>
-
-      <Link to="/minhas-cestas">
-        <User className="bottom-nav-icon" />
-        <span>Perfil</span>
-      </Link>
     </nav>
   );
 }
