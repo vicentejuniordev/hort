@@ -9,7 +9,10 @@ import BasketScreen from '../pages/BasketScreen/BasketScreen';
 import ViewHorta from '../pages/ViewHorta/ViewHorta';
 import ChatCliente from '../pages/ChatCliente/ChatCliente';
 import MessageDetailScreen from '../pages/MessageDetailScreen/MessageDetailScreen';
-import ProfileScreen from '../pages/ProfileScreen/ProfileScreen';
+import ProducerProfile from '../pages/ProducerProfile/ProducerProfile';
+import ClientProfile from '../pages/ClientProfile/ClientProfile';
+import RegisterPlans from '../pages/RegisterPlans/RegisterPlans';
+
 export default function AppRoutes() {
   return (
     <Routes>
@@ -23,7 +26,9 @@ export default function AppRoutes() {
       <Route path="/view-horta" element={<ViewHorta />} />
       <Route path="/mensagens" element={<ChatCliente />} />
       <Route path="/mensagens/:id" element={<MessageDetailScreen />} />
-      <Route path="/perfil" element={<ProfileScreen />} />
+      <Route path="/perfil-produtor" element={<ProducerProfile />} />
+      <Route path="/client-profile" element={<ClientProfile />} />
+      <Route path="/registrar-plano" element={<RegisterPlans />} />
     </Routes>
   );
 }

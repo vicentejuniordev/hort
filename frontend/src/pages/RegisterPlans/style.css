@@ -1,0 +1,220 @@
+.rp-screen {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f8fafc;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ── Header ── */
+.rp-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.25rem 1rem;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  gap: 1rem;
+}
+
+.rp-back-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid #22c55e;
+  background: none;
+  color: #16a34a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.rp-header-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.rp-header-title h1 {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: #15803d;
+}
+
+.rp-header-icon {
+  color: #22c55e;
+}
+
+.rp-header-icon-right {
+  margin-left: auto;
+}
+
+/* ── Content ── */
+.rp-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 1.25rem 1.125rem 2.5rem;
+  max-width: 560px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ── Card ── */
+.rp-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.rp-card-title {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: #15803d;
+}
+
+/* ── Field ── */
+.rp-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.rp-label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #15803d;
+}
+
+.rp-input,
+.rp-textarea,
+.rp-select {
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.875rem;
+  padding: 0.75rem 1rem;
+  border: 1.5px solid #fda4af;
+  border-radius: 12px;
+  background-color: #ffffff;
+  color: #1e293b;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.rp-textarea {
+  resize: none;
+  min-height: 100px;
+}
+
+.rp-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2'><polyline points='6 9 12 15 18 9'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  cursor: pointer;
+}
+
+.rp-input::placeholder,
+.rp-textarea::placeholder {
+  color: #cbd5e1;
+}
+
+.rp-input:focus,
+.rp-textarea:focus,
+.rp-select:focus {
+  border-color: #22c55e;
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.12);
+}
+
+.rp-input-error {
+  border-color: #f87171;
+}
+
+/* Prefixo de preço */
+.rp-input-prefix {
+  display: flex;
+  align-items: center;
+  border: 1.5px solid #fda4af;
+  border-radius: 12px;
+  background-color: #ffffff;
+  padding: 0 1rem;
+  transition: border-color 0.15s;
+}
+
+.rp-input-prefix:focus-within {
+  border-color: #22c55e;
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.12);
+}
+
+.rp-prefix {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #94a3b8;
+  margin-right: 0.4rem;
+}
+
+.rp-input-prefix input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.875rem;
+  padding: 0.75rem 0;
+  color: #1e293b;
+  background: none;
+}
+
+.rp-input-prefix input::placeholder {
+  color: #cbd5e1;
+}
+
+/* ── Error message ── */
+.rp-error {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.75rem;
+  color: #ef4444;
+}
+
+/* ── Submit ── */
+.rp-submit-btn {
+  width: 100%;
+  background-color: #16a34a;
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  padding: 1rem;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.rp-submit-btn:hover {
+  background-color: #15803d;
+}
+
+.rp-submit-btn:active {
+  background-color: #166534;
+}
+
+/* ── Responsividade ── */
+@media (min-width: 768px) {
+  .rp-content {
+    padding: 2rem 1.5rem 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .rp-content {
+    max-width: 640px;
+  }
+}
