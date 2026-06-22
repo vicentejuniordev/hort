@@ -15,7 +15,7 @@ import RegisterPlans from '../pages/RegisterPlans/RegisterPlans';
 import ProfileScreen from '../pages/ProfileScreen/ProfileScreen';
 import CartScreen from '../pages/CartScreen/CartScreen';
 import ProducerDashboard from '../pages/ProducerDashboard/ProducerDashboard';
-
+import ProducerOffers from '../pages/ProducerOffers/ProducerOffers';
 export default function AppRoutes() {
   return (
     <Routes>
@@ -35,6 +35,7 @@ export default function AppRoutes() {
       <Route path="/perfil" element={<ProfileScreen />} />
       <Route path="/carrinho/:hortaId" element={<CartScreen />} />
       <Route path="/producer-dashboard" element={<ProducerDashboard />} />
+      <Route path="/produtor-ofertas" element={<ProducerOffers />} />
     </Routes>
   );
 }

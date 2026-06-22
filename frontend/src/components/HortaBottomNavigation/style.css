@@ -46,7 +46,8 @@
 }
 
 .horta-bottom-nav span {
-  font-size: 12px;
+  font-size: 14px;
+  color: rgb(138, 135, 135);
 }
 
 .bottom-cart-wrapper {
