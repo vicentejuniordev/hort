@@ -12,6 +12,9 @@ import MessageDetailScreen from '../pages/MessageDetailScreen/MessageDetailScree
 import ProducerProfile from '../pages/ProducerProfile/ProducerProfile';
 import ClientProfile from '../pages/ClientProfile/ClientProfile';
 import RegisterPlans from '../pages/RegisterPlans/RegisterPlans';
+import ProfileScreen from '../pages/ProfileScreen/ProfileScreen';
+import CartScreen from '../pages/CartScreen/CartScreen';
+import ProducerDashboard from '../pages/ProducerDashboard/ProducerDashboard';
 
 export default function AppRoutes() {
   return (
@@ -29,6 +32,9 @@ export default function AppRoutes() {
       <Route path="/perfil-produtor" element={<ProducerProfile />} />
       <Route path="/client-profile" element={<ClientProfile />} />
       <Route path="/registrar-plano" element={<RegisterPlans />} />
+      <Route path="/perfil" element={<ProfileScreen />} />
+      <Route path="/carrinho/:hortaId" element={<CartScreen />} />
+      <Route path="/producer-dashboard" element={<ProducerDashboard />} />
     </Routes>
   );
 }
