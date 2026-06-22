@@ -1,26 +1,26 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useState, useRef, useEffect } from "react";
+import ChatInput from "../../components/ChatImput/ChatImput";
 import "./Style.css";
 
 export default function MessageDetailScreen() {
   const { id } = useParams();
+  const navigate = useNavigate();
+
   const [conversation, setConversation] = useState([
     { from: "Joãozinho", text: "Olá! Boa tarde, como posso ajudar?", time: "14:30" },
     { from: "Você", text: "Oi! Gostaria de saber se vocês têm alface disponível para entrega amanhã", time: "14:32" },
   ]);
-  const [newMessage, setNewMessage] = useState("");
+
   const messagesEndRef = useRef(null);
 
-  function handleSendMessage() {
-    if (newMessage.trim() === "") return;
+  function handleSendMessage(text) {
+    if (!text || text.trim() === "") return;
     const now = new Date();
     const time = now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
-
-    setConversation((prev) => [...prev, { from: "Você", text: newMessage, time }]);
-    setNewMessage("");
+    setConversation((prev) => [...prev, { from: "Você", text, time }]);
   }
 
-  // Scroll automático para o fim
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [conversation]);
@@ -28,13 +28,31 @@ export default function MessageDetailScreen() {
   return (
     <div className="chat-screen">
       <header className="chat-header">
-        <h3>Conversa com fornecedor {id}</h3>
+        <button className="back-button" onClick={() => navigate(-1)}>
+          &#8592;
+        </button>
+        <div className="chat-header-avatar">
+          <div className="avatar-circle">J</div>
+        </div>
+        <div className="chat-header-info">
+          <span className="chat-header-name">Joãozinho</span>
+          <span className="chat-header-status">Online</span>
+        </div>
+        <div className="chat-header-actions">
+          <button className="header-action-btn">&#128222;</button>
+          <button className="header-action-btn">&#9654;</button>
+          <button className="header-action-btn">&#8942;</button>
+        </div>
       </header>
+
+      <div className="chat-date-divider">
+        <span>Hoje</span>
+      </div>
 
       <div className="chat-messages">
         {conversation.map((msg, index) => (
-          <div 
-            key={index} 
+          <div
+            key={index}
             className={`chat-bubble ${msg.from === "Você" ? "sent" : "received"}`}
           >
             <p>{msg.text}</p>
@@ -44,15 +62,7 @@ export default function MessageDetailScreen() {
         <div ref={messagesEndRef} />
       </div>
 
-      <div className="chat-input">
-        <input
-          type="text"
-          value={newMessage}
-          onChange={(e) => setNewMessage(e.target.value)}
-          placeholder="Digite sua mensagem..."
-        />
-        <button onClick={handleSendMessage}>Enviar</button>
-      </div>
+      <ChatInput handleSendMessage={handleSendMessage} />
     </div>
   );
 }

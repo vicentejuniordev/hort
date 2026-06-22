@@ -1,0 +1,109 @@
+@import './style.css'; /* importa seu CSS base se necessário */
+
+.producer-dashboard {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f8fafc;
+  padding-bottom: 72px; /* espaço para a nav inferior */
+}
+
+.producer-header {
+  padding: 18px 16px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #e6eef6;
+  background: linear-gradient(90deg, #ecfdf5, #ffffff);
+}
+
+.producer-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.producer-logo-icon {
+  font-size: 26px;
+}
+
+.producer-logo-text {
+  font-size: 20px;
+  font-weight: 800;
+  color: #166534;
+  margin: 0;
+}
+
+.producer-main {
+  padding: 16px;
+  flex: 1;
+}
+
+.producer-section {
+  margin-bottom: 18px;
+}
+
+.producer-section-title {
+  font-size: 14px;
+  font-weight: 800;
+  color: #064e3b;
+  margin: 0 0 10px;
+}
+
+.producer-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+/* grid para produtos */
+.producer-products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+/* texto quando vazio */
+.empty-text {
+  color: #94a3b8;
+  font-size: 13px;
+  padding: 12px;
+  background: #ffffff;
+  border-radius: 10px;
+  border: 1px dashed #e2e8f0;
+}
+
+/* bottom nav */
+.producer-bottom-nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 12px;
+  margin: 0 auto;
+  max-width: 540px;
+  display: flex;
+  justify-content: space-around;
+  gap: 12px;
+  padding: 10px;
+  background: #ffffff;
+  border-radius: 999px;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+  border: 1px solid #e6eef6;
+  transform: translateY(0);
+}
+
+.nav-btn {
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  padding: 8px 12px;
+  cursor: pointer;
+  color: #64748b;
+}
+
+.nav-active {
+  background: linear-gradient(90deg, #16a34a, #059669);
+  color: #fff;
+  border-radius: 999px;
+  padding: 8px 14px;
+  box-shadow: 0 4px 10px rgba(5, 150, 105, 0.12);
+}

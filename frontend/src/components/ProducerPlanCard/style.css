@@ -1,0 +1,72 @@
+@import url('../../styles/global.css');
+
+.producer-plan-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 12px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+}
+
+.producer-plan-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.producer-plan-icon {
+  font-size: 22px;
+}
+
+.producer-plan-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+}
+
+.producer-plan-description {
+  font-size: 13px;
+  color: #64748b;
+  margin: 0 0 14px;
+  line-height: 1.5;
+}
+
+.producer-plan-divider {
+  border: none;
+  border-top: 1px solid #e2e8f0;
+  margin-bottom: 14px;
+}
+
+.producer-plan-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.producer-plan-btn {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.producer-plan-btn:hover {
+  opacity: 0.85;
+}
+
+.btn-delete {
+  background: #ffffff;
+  color: #ef4444;
+  border: 2px solid #ef4444;
+}
+
+.btn-edit {
+  background: #16a34a;
+  color: #ffffff;
+  border: 2px solid #16a34a;
+}
