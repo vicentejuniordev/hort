@@ -13,25 +13,49 @@
 
 /* Botão Voltar Superior */
 .back-button {
-    position: absolute;
-    left: 20px;
-    top: 40px;
-    background: #FFFFFF;
-    border: 1px solid #E2E8F0;
-    padding: 10px 20px;
-    border-radius: 100px;
-    font-size: 14px;
-    color: #62748E;
-    font-weight: 500;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: background 0.2s;
+  position: absolute;
+  left: 20px;
+  top: 40px;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  border: none;
+  background: transparent;
+
+  cursor: pointer;
+  padding: 0;
 }
 
-.back-button:hover {
-    background: #F8FAFC;
+.back-button .arrow-left {
+  width: 42px;
+  height: 42px;
+
+  border-radius: 50%;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #07377a;
+  font-size: 20px;
+
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+  transition: 0.2s ease;
+}
+
+.back-button:hover .arrow-left {
+  background: #f8fafc;
+  transform: translateX(-2px);
+}
+
+.back-button {
+  font-size: 16px;
+  font-weight: 500;
+  color: #1751a3;
 }
 
 .logo-profile {
@@ -204,12 +228,12 @@
 /* Adaptação de Responsividade para Dispositivos Móveis */
 @media (max-width: 768px) {
     .back-button {
-        position: relative;
-        left: 0;
-        top: 0;
-        margin-bottom: 24px;
-        align-self: flex-start;
-    }
+    position: relative;
+    left: 0;
+    top: 0;
+    align-self: flex-start;
+    margin-bottom: 24px;
+  }
     .cards-container {
         flex-direction: column;
         align-items: center;

@@ -1,3 +1,4 @@
+import {useNavigate} from "react-router-dom";
 import logoHort from "../../assets/icons/logo.png";
 import CustomButton from "../../components/StartButton/StartButtom";
 import WelcomeDescription from "../../components/WelcomeDescription/WelcomeDescription";
@@ -5,6 +6,8 @@ import LoginOther from "../../components/LoginOther/LoginOther";
 import "./styles.css";
 
 export default function InitialScreen() {
+  const navigate = useNavigate();
+
   return (
     <div className="initial-screen">
       <img className="logo" src={logoHort} alt="Logo Hort" />
@@ -15,16 +18,17 @@ export default function InitialScreen() {
       <div className="about-items">
         <div className="about-section-one">
             <WelcomeDescription title="Assinatura de cestas." />
-            <WelcomeDescription title="Frutas e verduras" />
+            <WelcomeDescription title="Frutas e verduras Frescas" />
         </div>
         <div className="about-section-two">
             <WelcomeDescription title="Cestas personalizadas." />
         </div>
+        
       </div>
       <div className="cta-button">
-        <CustomButton title="Criar Conta" backgroundColor="#30aa4c" textColor="#fff"/>
+        <CustomButton  title="Criar Conta" backgroundColor="#30aa4c" textColor="#fff" onClick={() => navigate('/selecionar-perfil')} />
       </div>
-        <button className="login">Já tem uma conta? <span className="login-link"> Faça Login</span></button>
+        <button onClick={() => navigate('/login')} className="login">Já tem uma conta? <span className="login-link"> Faça Login</span></button>
 
       <div className="login-others">
         <hr />

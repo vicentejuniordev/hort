@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import  { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import logoHort from "../../assets/icons/logo.png";
 import "./styles.css";
 
+
 export default function SelectProfile() {
   const [profile, setProfile] = useState("");
+  const navigate = useNavigate();
 
   const handleSelect = (selectedProfile) => {
     setProfile(selectedProfile);
@@ -15,8 +18,8 @@ export default function SelectProfile() {
     <div className="profile-screen">
       {/* Botão Voltar */}
       <button className="back-button" onClick={() => window.history.back()}>
-        <span className="arrow-left">&larr;</span> Voltar
-      </button>
+        <span className="arrow-left">←</span>
+       </button>  
 
       {/* Logotipo vindo da sua pasta de assets */}
       <img className="logo-profile" src={logoHort} alt="Logo Hort" />
@@ -50,7 +53,7 @@ export default function SelectProfile() {
             <li><span class="dot green-dot"></span> Escolha o dia de entrega</li>
             <li><span class="dot green-dot"></span> Cancele quando quiser</li>
           </ul>
-          <button className="action-link text-green" onClick={() => handleSelect("cliente")}>
+          <button className="action-link text-green" onClick={() => navigate('/registrar-cliente')}>
             Começar assinatura &rarr;
           </button>
         </div>
@@ -75,7 +78,7 @@ export default function SelectProfile() {
             <li><span class="dot orange-dot"></span> Gestão de entregas</li>
             <li><span class="dot orange-dot"></span> Sem intermediários</li>
           </ul>
-          <button className="action-link text-orange" onClick={() => handleSelect("produtor")}>
+          <button className="action-link text-orange" onClick={() => navigate('/registrar-produtor')}>
             Começar a vender &rarr;
           </button>
         </div>

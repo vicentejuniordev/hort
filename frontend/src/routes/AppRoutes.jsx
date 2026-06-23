@@ -18,9 +18,9 @@ export default function AppRoutes() {
     <Routes>
       <Route path="/" element={<InitialScreen />} />
       <Route path="/login" element={<LoginScreen />} />
-      <Route path="/register" element={<RegisterUser />} />
-      <Route path="/register-producer" element={<RegisterProducer />} />
-      <Route path="/select-profile" element={<SelectProfile />} />
+      <Route path="/registrar-cliente" element={<RegisterUser />} />
+      <Route path="/registrar-produtor" element={<RegisterProducer />} />
+      <Route path="/selecionar-perfil" element={<SelectProfile />} />
       <Route path="/home-client" element={<InitialScreenClient />} />
       <Route path="/minhas-cestas" element={<BasketScreen />} />
       <Route path="/view-horta" element={<ViewHorta />} />
