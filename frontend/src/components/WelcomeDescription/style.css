@@ -2,18 +2,55 @@
 
 .welcome-description {
     display: flex;
-    width: 30%;
-    padding: 5px;
+    width: min(42%, 12rem);
+    min-height: 2.2rem;
+    padding: 0.45rem 0.65rem;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 1.25rem;
     border: 1px solid #bbf7d0;
-    border-radius: 8px;
-    background-color: #e6f7ed;
+    border-radius: 0.65rem;
+    background: linear-gradient(135deg, #f4fcf6, #e2f7e8);
+    box-shadow: 0 0.35rem 0.8rem rgb(22 163 74 / 8%);
+    opacity: 0;
+    transform: translateY(0.75rem);
+    animation: welcome-card-enter 420ms ease-out forwards;
+    transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.about-section-one .welcome-description:nth-child(2) {
+    animation-delay: 100ms;
+}
+
+.about-section-two .welcome-description {
+    animation-delay: 200ms;
+}
+
+.welcome-description:hover {
+    border-color: #7ed992;
+    box-shadow: 0 0.65rem 1.1rem rgb(22 163 74 / 14%);
+    transform: translateY(-0.2rem);
 }
 
 .description-text {
-    font-size: 10px;
+    font-size: 0.6875rem;
     color: #16a34a;
     text-align: center;
+    font-weight: 500;
+}
+
+@keyframes welcome-card-enter {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .welcome-description {
+        opacity: 1;
+        transform: none;
+        animation: none;
+        transition: none;
+    }
 }

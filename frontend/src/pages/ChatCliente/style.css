@@ -1,27 +1,10 @@
 @import url('../../styles/global.css');
 
-.chat-cliente {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-}
-
-.text-content {
-    width: 80%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-weight: 500;
-}
-
-.view-more {
-    display: flex;
-    align-items: center;
-    border: none;
-    background: none;
-    gap: 5px;
-    font-size: 0.875rem;
-    color: #22c55e;
-    cursor: pointer;
-}
+.messages-screen { min-height: 100vh; padding-bottom: 6rem; background: #f7faf7; }
+.messages-content { width: min(100% - 2rem, 46rem); margin: 0 auto; padding: 1.25rem 0; }
+.messages-header { display: flex; align-items: center; justify-content: space-between; margin: -0.5rem 0 1rem; }
+.messages-header p { color: #20883a; font-size: 0.625rem; font-weight: 700; letter-spacing: .12em; }
+.new-count { padding: .35rem .6rem; border-radius: 999px; background: #e4f7e8; color: #177437; font-size: .75rem; font-weight: 700; }
+.messages-screen .search-container { margin-bottom: 1rem; }
+.messages-screen .filter-tabs { margin-bottom: 1rem; }
+.messages-empty { padding: 2rem; color: #718076; text-align: center; }

@@ -1,11 +1,10 @@
 import './style.css';
 
 
-export default function StartButton({title, backgroundColor, textColor, onClick}) {
+export default function StartButton({title, backgroundColor, textColor, onClick, type = 'button'}) {
   return (
-    <button style={{ backgroundColor: backgroundColor, color: textColor }} className="start-button" onClick={onClick}>
+    <button type={type} style={{ backgroundColor: backgroundColor, color: textColor }} className="start-button" onClick={onClick}>
       {title}
     </button>
   );
 };
-

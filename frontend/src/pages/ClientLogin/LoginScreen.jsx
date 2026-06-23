@@ -1,30 +1,57 @@
 import './LoginScreen.css';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { authenticateUser } from '../../services/authStorage';
+import logo from '../../assets/icons/logo.png';
+import BackButton from '../../components/BackButton/BackButton';
 
 export default function LoginScreen({ onVoltar, onFazerLogin, onCriarConta }) {
+  const navigate = useNavigate();
+  const [identifier, setIdentifier] = useState('');
+  const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const [errors, setErrors] = useState({});
+  const [loginError, setLoginError] = useState('');
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const validationErrors = {};
+
+    if (!identifier.trim()) validationErrors.identifier = 'Informe seu e-mail, telefone ou CNPJ.';
+    if (!password) validationErrors.password = 'Informe sua senha.';
+
+    setErrors(validationErrors);
+    setLoginError('');
+    if (Object.keys(validationErrors).length > 0) return;
+
+    const user = await authenticateUser(identifier, password);
+    if (!user) {
+      setLoginError('Dados de acesso não encontrados. Verifique e tente novamente.');
+      return;
+    }
+
+    onFazerLogin?.(user);
+    navigate(user.role === 'producer' ? '/producer-dashboard' : '/home-client');
+  };
+
   return (
     <div className="login-wrapper">
-      <button className="login-back-btn" onClick={onVoltar}>
-        <span className="login-back-arrow">&#8592;</span>
-        Voltar
-      </button>
+      {onVoltar ? (
+        <button className="login-back-btn" onClick={onVoltar}>Voltar</button>
+      ) : <BackButton to="/" />}
 
       <div className="login-header">
-        <div className="login-logo">
-          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M24 8C18 8 10 14 10 24C10 30 14 35 20 37C20 32 22 28 24 26C26 28 28 32 28 37C34 35 38 30 38 24C38 14 30 8 24 8Z" fill="#4CAF50"/>
-            <path d="M24 26C22 24 18 22 14 23C14 28 18 33 24 35C30 33 34 28 34 23C30 22 26 24 24 26Z" fill="#2E7D32"/>
-          </svg>
-        </div>
-        <h1 className="login-brand">HORT</h1>
+        <img className="login-brand-logo" src={logo} alt="HORT" />
+        <p className="login-brand-tagline">Produtos frescos, direto da origem</p>
       </div>
 
       <div className="login-card">
         <h2 className="login-title">Bem-vindo de volta</h2>
         <p className="login-subtitle">Entre com sua conta ou escolha outra forma de acesso</p>
 
-        <div className="login-form">
+        <form className="login-form" noValidate onSubmit={handleSubmit}>
           <div className="login-field">
-            <label className="login-label">Email, telefone ou CNPJ</label>
+            <label className="login-label" htmlFor="login-identifier">Email, telefone ou CNPJ</label>
             <div className="login-input-wrapper">
               <span className="login-input-icon">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9E9E9E" strokeWidth="2">
@@ -34,14 +61,25 @@ export default function LoginScreen({ onVoltar, onFazerLogin, onCriarConta }) {
               </span>
               <input
                 type="text"
+                id="login-identifier"
                 className="login-input"
                 placeholder="seu@email.com"
+                value={identifier}
+                onChange={(event) => {
+                  setIdentifier(event.target.value);
+                  setErrors((current) => ({ ...current, identifier: '' }));
+                  setLoginError('');
+                }}
+                autoComplete="username"
+                aria-invalid={Boolean(errors.identifier)}
+                aria-describedby={errors.identifier ? 'login-identifier-error' : undefined}
               />
             </div>
+            {errors.identifier && <span id="login-identifier-error" className="login-field-error">{errors.identifier}</span>}
           </div>
 
           <div className="login-field">
-            <label className="login-label">Senha</label>
+            <label className="login-label" htmlFor="login-password">Senha</label>
             <div className="login-input-wrapper">
               <span className="login-input-icon">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9E9E9E" strokeWidth="2">
@@ -50,27 +88,50 @@ export default function LoginScreen({ onVoltar, onFazerLogin, onCriarConta }) {
                 </svg>
               </span>
               <input
-                type="password"
+                type={showPassword ? 'text' : 'password'}
+                id="login-password"
                 className="login-input"
                 placeholder="••••••••"
+                value={password}
+                onChange={(event) => {
+                  setPassword(event.target.value);
+                  setErrors((current) => ({ ...current, password: '' }));
+                  setLoginError('');
+                }}
+                autoComplete="current-password"
+                aria-invalid={Boolean(errors.password)}
+                aria-describedby={errors.password ? 'login-password-error' : undefined}
               />
-              <button className="login-eye-btn" type="button">
+              <button className="login-eye-btn" type="button" onClick={() => setShowPassword((current) => !current)} aria-label={showPassword ? 'Ocultar senha' : 'Mostrar senha'}>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9E9E9E" strokeWidth="2">
-                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-                  <circle cx="12" cy="12" r="3"/>
+                  {showPassword ? (
+                    <>
+                      <path d="M3 3l18 18" />
+                      <path d="M10.6 10.6a2 2 0 0 0 2.8 2.8" />
+                      <path d="M9.9 4.2A10.6 10.6 0 0 1 12 4c7 0 11 8 11 8a19.1 19.1 0 0 1-3.1 4.2" />
+                      <path d="M6.6 6.6C3.7 8.5 1 12 1 12s4 8 11 8a10.8 10.8 0 0 0 3.1-.5" />
+                    </>
+                  ) : (
+                    <>
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                      <circle cx="12" cy="12" r="3" />
+                    </>
+                  )}
                 </svg>
               </button>
             </div>
+            {errors.password && <span id="login-password-error" className="login-field-error">{errors.password}</span>}
           </div>
 
           <div className="login-forgot">
             <button className="login-forgot-btn" type="button">Esqueceu a senha?</button>
           </div>
 
-          <button className="login-submit-btn" onClick={onFazerLogin}>
+          {loginError && <p className="login-error" role="alert">{loginError}</p>}
+          <button className="login-submit-btn" type="submit">
             Entrar
           </button>
-        </div>
+        </form>
 
         <div className="login-divider">
           <span className="login-divider-line" />
@@ -88,10 +149,9 @@ export default function LoginScreen({ onVoltar, onFazerLogin, onCriarConta }) {
               <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
             </svg>
           </button>
-          <button className="login-social-btn">
-            {/* WhatsApp */}
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="#25D366">
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          <button className="login-social-btn" aria-label="Continuar com X">
+            <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="#111" d="M18.9 2H22l-6.77 7.73L23.2 22h-6.24l-4.89-6.4L6.47 22H3.36l7.24-8.28L2.95 2h6.4l4.42 5.84L18.9 2Zm-1.09 18h1.72L8.42 3.9H6.58L17.81 20Z" />
             </svg>
           </button>
           <button className="login-social-btn">
@@ -104,7 +164,7 @@ export default function LoginScreen({ onVoltar, onFazerLogin, onCriarConta }) {
 
         <p className="login-register-text">
           Não tem conta ainda?{' '}
-          <button className="login-register-link" onClick={onCriarConta}>
+          <button className="login-register-link" onClick={() => (onCriarConta ? onCriarConta() : navigate('/selecionar-perfil'))}>
             Cadastre-se
           </button>
         </p>

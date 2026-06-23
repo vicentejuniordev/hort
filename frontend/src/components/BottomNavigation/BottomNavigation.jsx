@@ -1,9 +1,8 @@
-import { Home, ShoppingBasket, MessageCircle, User } from "lucide-react";
+import { Home, ShoppingCart, MessageCircle, User } from "lucide-react";
 import NavItem from "../NavItem/NavItem";
 import "./style.css";
 
 export default function BottomNavigation({
-  setIsSidebarOpen,
   activeItem
 }) {
   return (
@@ -16,7 +15,7 @@ export default function BottomNavigation({
       />
 
       <NavItem
-        icon={ShoppingBasket}
+        icon={ShoppingCart}
         label="Cestas"
         to="/minhas-cestas"
         active={activeItem === "baskets"}
@@ -32,7 +31,7 @@ export default function BottomNavigation({
       <NavItem
         icon={User}
         label="Perfil"
-        onClick={() => setIsSidebarOpen(true)}
+        to="/perfil"
         active={activeItem === "profile"}
       />
     </nav>

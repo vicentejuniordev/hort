@@ -1,18 +1,84 @@
 @import url('../../styles/global.css');
 
 .initial-screen-client {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
+  min-height: 100vh;
+  padding-bottom: 6.5rem;
+  background:
+    radial-gradient(circle at 95% 0%, rgb(181 230 192 / 44%), transparent 18rem),
+    #f7faf7;
 }
 
-.text-content {
-    width: 80%;
+.home-client-content {
     display: flex;
+    flex-direction: column;
+    width: min(100% - 2rem, 48rem);
+    gap: 1rem;
+    margin: 1rem auto 0;
+}
+
+.home-client-content .search-container {
+    filter: drop-shadow(0 0.35rem 0.75rem rgb(34 99 48 / 8%));
+}
+
+.home-client-content .search-input {
+  border-color: #d8e8db;
+  background: rgb(255 255 255 / 92%);
+}
+
+.home-client-content .category-list {
+  position: relative;
+  padding: 0.25rem;
+  border: 1px solid #e0eee2;
+  border-radius: 0.9rem;
+  background: rgb(255 255 255 / 70%);
+}
+
+.home-client-content .category-button {
+  border-color: transparent;
+}
+
+.home-client-content .category-button.active {
+  box-shadow: 0 0.25rem 0.6rem rgb(32 136 58 / 12%);
+}
+
+.home-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  padding: 1rem;
+  border: 1px solid #e4eee6;
+  border-top: 3px solid #ccefd3;
+    border-radius: 1rem;
+    background: rgb(255 255 255 / 88%);
+    box-shadow: 0 0.5rem 1.25rem rgb(20 81 35 / 5%);
+}
+
+.home-section .horta-card:hover {
+  border-color: #76ce89;
+}
+
+.initial-screen-client .text-content {
+  display: flex;
+  width: 100%;
     justify-content: space-between;
     align-items: center;
     font-weight: 500;
+}
+
+.initial-screen-client .text-content h2 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #1f2937;
+    font-size: 1rem;
+}
+
+.initial-screen-client .text-content h2::before {
+    width: 0.25rem;
+    height: 1.1rem;
+    border-radius: 999px;
+    background: #30aa4c;
+    content: '';
 }
 
 .view-more {
@@ -24,4 +90,27 @@
     font-size: 0.875rem;
     color: #22c55e;
     cursor: pointer;
+}
+
+.view-more:focus-visible {
+    outline: 2px solid #30aa4c;
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+.view-more:hover {
+    color: #176f2f;
+    text-decoration: underline;
+}
+
+.empty-results {
+    padding: 2rem 1rem;
+    color: #64748b;
+    text-align: center;
+}
+
+@media (min-width: 48rem) {
+    .home-client-content {
+        margin-top: 1.5rem;
+    }
 }

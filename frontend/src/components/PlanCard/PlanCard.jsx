@@ -1,17 +1,27 @@
 
 import { Check, Crown } from "lucide-react";
+import { useState } from 'react';
 import "./style.css";
 
 export default function PlanCard({ plan }) {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
-    <div
-      className={`plan-card ${
-        plan.recommended ? "recommended" : ""
-      }`}
-    >
+    <>
+      <div
+        className={`plan-card ${
+          plan.recommended ? "recommended" : ""
+        }`}
+      >
       {plan.recommended && (
         <div className="plan-badge">
           Mais Popular
+        </div>
+      )}
+
+      {plan.image && (
+        <div className="plan-image">
+          <img src={plan.image} alt={`Cesta do ${plan.name}`} />
         </div>
       )}
 
@@ -49,9 +59,21 @@ export default function PlanCard({ plan }) {
         ))}
       </div>
 
-      <button className="plan-button">
+      <button className="plan-button" type="button" onClick={() => setIsModalOpen(true)}>
         Assinar Plano
       </button>
-    </div>
+      </div>
+
+      {isModalOpen && (
+        <div className="plan-modal-overlay" onClick={() => setIsModalOpen(false)}>
+          <section className="plan-modal" role="dialog" aria-modal="true" aria-labelledby={`plan-modal-${plan.id}`} onClick={(event) => event.stopPropagation()}>
+            <div className="plan-modal-icon" aria-hidden="true">🌱</div>
+            <h2 id={`plan-modal-${plan.id}`}>Em breve!</h2>
+            <p>A contratação do {plan.name} está em desenvolvimento. Estamos preparando essa novidade para você.</p>
+            <button type="button" onClick={() => setIsModalOpen(false)}>Entendi</button>
+          </section>
+        </div>
+      )}
+    </>
   );
 }

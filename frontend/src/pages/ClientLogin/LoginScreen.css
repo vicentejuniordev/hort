@@ -2,7 +2,9 @@
 
 .login-wrapper {
   min-height: 100vh;
-  background-color: #f5f5f5;
+  background:
+    radial-gradient(circle at 50% -10%, rgb(139 205 151 / 30%), transparent 20rem),
+    #f6f8f6;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -27,28 +29,39 @@
   margin-bottom: 8px;
 }
 
+.login-wrapper > .app-back-button {
+  align-self: flex-start;
+  margin-bottom: 0.5rem;
+}
+
 .login-back-arrow {
   font-size: 18px;
 }
 
 /* Header / Logo */
 .login-header {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 24px;
+  width: 100%;
+  margin: 0.5rem 0 1.75rem;
+  text-align: center;
 }
 
-.login-logo {
-  margin-bottom: 4px;
+.login-brand-logo {
+  display: block;
+  width: clamp(9.5rem, 42vw, 13rem);
+  height: auto;
+  filter: drop-shadow(0 0.5rem 0.75rem rgb(32 136 58 / 13%));
 }
 
-.login-brand {
-  font-size: 26px;
-  font-weight: 700;
-  color: #1a1a1a;
-  margin: 0;
-  letter-spacing: 2px;
+.login-brand-tagline {
+  margin-top: 0.5rem;
+  color: #6c7d70;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
 }
 
 /* Card */
@@ -98,6 +111,7 @@
 }
 
 .login-input-wrapper {
+  position: relative;
   display: flex;
   align-items: center;
   border: 1.5px solid #E0E0E0;
@@ -111,6 +125,7 @@
 
 .login-input-wrapper:focus-within {
   border-color: #4CAF50;
+  box-shadow: 0 0 0 3px rgb(76 175 80 / 14%);
 }
 
 .login-input-icon {
@@ -134,12 +149,49 @@
 }
 
 .login-eye-btn {
+  position: absolute;
+  top: 50%;
+  right: 0.45rem;
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  place-items: center;
   background: none;
   border: none;
+  border-radius: 0.5rem;
   cursor: pointer;
   padding: 0;
-  display: flex;
-  align-items: center;
+  flex: 0 0 auto;
+  transform: translateY(-50%);
+}
+
+.login-eye-btn:hover {
+  background: #eff8f1;
+}
+
+.login-eye-btn svg {
+  pointer-events: none;
+}
+
+.login-eye-btn:focus-visible,
+.login-back-btn:focus-visible,
+.login-forgot-btn:focus-visible,
+.login-register-link:focus-visible {
+  outline: 2px solid #2E7D32;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.login-field-error,
+.login-error {
+  color: #c83737;
+  font-size: 0.75rem;
+  line-height: 1.35;
+}
+
+.login-error {
+  margin: -0.25rem 0 0;
+  text-align: center;
 }
 
 /* Forgot password */

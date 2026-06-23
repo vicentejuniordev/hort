@@ -2,6 +2,10 @@
   list-style: none;
   padding: 0;
   margin: 0;
+  overflow: hidden;
+  border: 1px solid #e1ece3;
+  border-radius: 1rem;
+  background: #fff;
 }
 .img-profile {
   width: 32px;
@@ -15,15 +19,20 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px;
+  gap: .75rem;
+  padding: .9rem;
 
-  border-bottom: 2px solid #ddd;
+  border-bottom: 1px solid #edf1ed;
   transition: background-color 0.2s ease;
 }
 
 .message-item.unread {
   background-color: #f5fff5; /* leve destaque para não lidas */
 }
+
+.message-item:hover { background: #f5fbf6; }
+
+.message-icon { width: 2.6rem; height: 2.6rem; padding: .25rem; border-radius: .75rem; background: #eaf8ed; object-fit: contain; }
 
 .message-item .icon {
   font-size: 22px;

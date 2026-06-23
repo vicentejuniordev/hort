@@ -1,9 +1,12 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useState, useRef, useEffect } from "react";
 import "./Style.css";
 
 export default function MessageDetailScreen() {
   const { id } = useParams();
+  const navigate = useNavigate();
+  const names = { 1: 'Horta Nossa Senhora da Guia', 2: 'Horta Nossa Senhora das Graças', 3: 'Horta de Todos', 4: 'Verdurão Oliveira' };
+  const senderName = names[id] || 'Fornecedor';
   const [conversation, setConversation] = useState([
     { from: "Joãozinho", text: "Olá! Boa tarde, como posso ajudar?", time: "14:30" },
     { from: "Você", text: "Oi! Gostaria de saber se vocês têm alface disponível para entrega amanhã", time: "14:32" },
@@ -20,6 +23,11 @@ export default function MessageDetailScreen() {
     setNewMessage("");
   }
 
+  function handleSubmit(event) {
+    event.preventDefault();
+    handleSendMessage();
+  }
+
   // Scroll automático para o fim
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -28,7 +36,8 @@ export default function MessageDetailScreen() {
   return (
     <div className="chat-screen">
       <header className="chat-header">
-        <h3>Conversa com fornecedor {id}</h3>
+        <button type="button" className="chat-back-button" onClick={() => navigate('/mensagens')} aria-label="Voltar para mensagens">←</button>
+        <div><p>CONVERSA COM</p><h1>{senderName}</h1></div>
       </header>
 
       <div className="chat-messages">
@@ -44,15 +53,15 @@ export default function MessageDetailScreen() {
         <div ref={messagesEndRef} />
       </div>
 
-      <div className="chat-input">
+      <form className="chat-input" onSubmit={handleSubmit}>
         <input
           type="text"
           value={newMessage}
           onChange={(e) => setNewMessage(e.target.value)}
           placeholder="Digite sua mensagem..."
         />
-        <button onClick={handleSendMessage}>Enviar</button>
-      </div>
+        <button type="submit">Enviar</button>
+      </form>
     </div>
   );
 }

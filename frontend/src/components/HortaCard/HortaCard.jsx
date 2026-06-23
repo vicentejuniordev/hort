@@ -8,7 +8,7 @@ export default function HortaCard({
 }) {
   return (
     <Link
-      to={`/horta/${horta.id}`}
+      to={`/view-horta/${horta.id}`}
       className="horta-card"
     >
       <div className="horta-card-content">

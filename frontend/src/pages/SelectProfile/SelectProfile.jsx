@@ -2,6 +2,7 @@ import  { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import logoHort from "../../assets/icons/logo.png";
 import "./styles.css";
+import BackButton from '../../components/BackButton/BackButton';
 
 
 export default function SelectProfile() {
@@ -16,10 +17,7 @@ export default function SelectProfile() {
 
   return (
     <div className="profile-screen">
-      {/* Botão Voltar */}
-      <button className="back-button" onClick={() => window.history.back()}>
-        <span className="arrow-left">←</span>
-       </button>  
+      <BackButton to="/" />
 
       {/* Logotipo vindo da sua pasta de assets */}
       <img className="logo-profile" src={logoHort} alt="Logo Hort" />

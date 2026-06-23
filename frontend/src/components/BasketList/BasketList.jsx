@@ -5,6 +5,7 @@ export default function BasketList({
   baskets,
   onPause,
   onDelete,
+  onEdit,
 }) {
   return (
     <div className="basket-list">
@@ -14,6 +15,7 @@ export default function BasketList({
           basket={basket}
           onPause={onPause}
           onDelete={onDelete}
+          onEdit={onEdit}
         />
       ))}
     </div>

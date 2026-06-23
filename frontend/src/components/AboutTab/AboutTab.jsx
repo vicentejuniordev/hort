@@ -1,15 +1,14 @@
 import { Clock, Phone, MapPin } from "lucide-react";
 import "./style.css";
 
-export default function AboutTab() {
+export default function AboutTab({ horta }) {
   return (
     <section className="about-tab">
       <div className="about-card">
         <h2>Sobre a Horta</h2>
 
         <p>
-          A Horta Nossa Senhora da Guia é uma iniciativa comunitária que oferece
-          produtos frescos e orgânicos diretamente do produtor para você.
+          {horta.description}
         </p>
 
         <div className="about-info-list">
@@ -28,7 +27,7 @@ export default function AboutTab() {
           <InfoItem
             icon={MapPin}
             title="Endereço Completo"
-            text="Rua das Flores, 123 - Jardim das Acácias"
+            text={horta.address}
           />
         </div>
       </div>

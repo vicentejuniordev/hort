@@ -23,7 +23,7 @@ export default function AppRoutes() {
       <Route path="/selecionar-perfil" element={<SelectProfile />} />
       <Route path="/home-client" element={<InitialScreenClient />} />
       <Route path="/minhas-cestas" element={<BasketScreen />} />
-      <Route path="/view-horta" element={<ViewHorta />} />
+      <Route path="/view-horta/:id?" element={<ViewHorta />} />
       <Route path="/mensagens" element={<ChatCliente />} />
       <Route path="/mensagens/:id" element={<MessageDetailScreen />} />
       <Route path="/perfil" element={<ProfileScreen />} />

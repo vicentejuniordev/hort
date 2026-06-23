@@ -1,5 +1,17 @@
 @import url('../../styles/global.css');
 
+.register-producer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+.register-producer > .app-back-button {
+  align-self: flex-start;
+}
+
 .img-logo {
   width: 200px;
   justify-content: center;
@@ -49,3 +61,9 @@
   margin-right: 230px;
 }
 
+.producer-form-error {
+  margin: 0.5rem 0;
+  color: #c83737;
+  font-size: 0.75rem;
+  text-align: center;
+}

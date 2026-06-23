@@ -2,7 +2,7 @@
 .input-box {
   position: relative;
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 1rem;
 }
 
 .input-box img {
@@ -10,20 +10,44 @@
   left: 10px;
   top: 50%;
   transform: translateY(-50%);
-  width: 17px;
+  width: 1.0625rem;
+  height: 1.0625rem;
+  object-fit: contain;
 }
 
-label {
+.input-container > label {
+  display: block;
   margin-bottom: 5px;
   font-weight: 400;
   font-size: 14px;
 }
 .input-box input {
   width: 100%;
-  padding: 10px;
-  padding-left: 30px;
+  min-width: 0;
+  padding: 0.75rem;
+  padding-left: 2.375rem;
   border: 2px solid #dddcdc;
   border-radius: 10px;
   background-color: #eff8f1;
   box-sizing: border-box;
+  font: inherit;
+  font-size: 0.875rem;
+}
+
+.input-box input:focus {
+  outline: none;
+  border-color: #30aa4c;
+  box-shadow: 0 0 0 3px rgb(48 170 76 / 15%);
+}
+
+.input-box input[aria-invalid='true'] {
+  border-color: #c83737;
+}
+
+.input-error {
+  display: block;
+  margin: -0.625rem 0 0.75rem;
+  color: #c83737;
+  font-size: 0.75rem;
+  line-height: 1.3;
 }

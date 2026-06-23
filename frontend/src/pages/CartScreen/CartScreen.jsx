@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 import CartHeader from "../../components/CartHeader/CartHeader";
 import EmptyCart from "../../components/EmptyCart/EmptyCart";
@@ -7,34 +7,18 @@ import CartItem from "../../components/CartItem/CartItem";
 import OrderSummary from "../../components/OrderSummary/OrderSummary";
 import CheckoutButton from "../../components/CheckoutButton/CheckoutButton";
 
-import imgTomate from "../../assets/icons/tomate.png";
-import imgCebola from "../../assets/icons/cebola.png";
-
 import "./style.css";
 
 export default function CartScreen() {
   const navigate = useNavigate();
+  const location = useLocation();
   const { hortaId } = useParams();
 
   const hortaIdNum = Number(hortaId) || 1;
-  const hortaName = "Horta Nossa Senhora da Guia";
+  const hortaName = location.state?.hortaName || "Horta";
 
-  const [cartItems, setCartItems] = useState([
-    {
-      id: 1,
-      name: "Cebola",
-      price: 2.0,
-      quantity: 2,
-      image: imgCebola,
-    },
-    {
-      id: 2,
-      name: "Tomate",
-      price: 3.5,
-      quantity: 1,
-      image: imgTomate,
-    },
-  ]);
+  const [cartItems, setCartItems] = useState(() => location.state?.cartItems || []);
+  const [isCheckoutModalOpen, setIsCheckoutModalOpen] = useState(false);
 
   const serviceFee = 2.0;
   const deliveryFee = 5.0;
@@ -48,11 +32,11 @@ export default function CartScreen() {
   const isCartEmpty = cartItems.length === 0;
 
   function handleBack() {
-    navigate(`/horta/${hortaIdNum}`);
+    navigate(`/view-horta/${hortaIdNum}`);
   }
 
   function handleAddProducts() {
-    navigate(`/horta/${hortaIdNum}`, {
+    navigate(`/view-horta/${hortaIdNum}`, {
       state: { openTab: "produtos" },
     });
   }
@@ -80,8 +64,7 @@ export default function CartScreen() {
 
   function handleCheckout() {
     if (isCartEmpty) return;
-
-    alert("Funcionalidade de checkout em desenvolvimento!");
+    setIsCheckoutModalOpen(true);
   }
 
   return (
@@ -122,6 +105,17 @@ export default function CartScreen() {
           onCheckout={handleCheckout}
           disabled={isCartEmpty}
         />
+      )}
+
+      {isCheckoutModalOpen && (
+        <div className="checkout-modal-overlay" onClick={() => setIsCheckoutModalOpen(false)}>
+          <section className="checkout-modal" role="dialog" aria-modal="true" aria-labelledby="checkout-modal-title" onClick={(event) => event.stopPropagation()}>
+            <div className="checkout-modal-icon" aria-hidden="true">🌱</div>
+            <h2 id="checkout-modal-title">Em desenvolvimento</h2>
+            <p>A finalização da compra estará disponível em breve. Estamos preparando essa experiência para você.</p>
+            <button type="button" onClick={() => setIsCheckoutModalOpen(false)}>Entendi</button>
+          </section>
+        </div>
       )}
     </div>
   );

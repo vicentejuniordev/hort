@@ -13,6 +13,7 @@ export default function BasketCard({
   basket,
   onPause,
   onDelete,
+  onEdit,
 }) {
   const statusConfig = {
     active: {
@@ -85,7 +86,7 @@ export default function BasketCard({
       <div className="basket-actions">
         {basket.status === "active" && (
           <>
-            <button className="btn-main">
+            <button className="btn-main" onClick={() => onEdit(basket.id)}>
               <Edit3 className="btn-icon" />
               Editar
             </button>

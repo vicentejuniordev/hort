@@ -1,83 +1,64 @@
-import NotificationItem from "../NotificationItem/NotificationItem";
-import "./style.css";
+import { useEffect } from 'react';
+import NotificationItem from '../NotificationItem/NotificationItem';
+import './style.css';
 
 export default function NotificationModal({
   isOpen,
   onClose,
+  notifications,
+  onMarkAllAsRead,
+  onMarkAsRead,
 }) {
-  const notifications = [
-    {
-      id: 1,
-      title: "Assinatira confirmada",
-      message: "Sua assinatura foi confirmada com sucesso",
-      time: "Há 5 min",
-      read: false,
-      icon: "📦",
-    },
-    {
-      id: 2,
-      title: "Cesta a caminho",
-      message: "Sua cesta está chegando",
-      time: "Há 1 hora",
-      read: false,
-      icon: "🚚",
-    },
-    {
-      id: 3,
-      title: "Oferta especial",
-      message: "Aproveite 20% de desconto na próxima compra",
-      time: "Há 2 horas",
-      read: true,
-      icon: "🎉",
-    },
-  ];
+  const unreadCount = notifications.filter((notification) => !notification.read).length;
+
+  useEffect(() => {
+    if (!isOpen) return undefined;
+
+    function handleEscape(event) {
+      if (event.key === 'Escape') onClose();
+    }
+
+    window.addEventListener('keydown', handleEscape);
+    return () => window.removeEventListener('keydown', handleEscape);
+  }, [isOpen, onClose]);
 
   if (!isOpen) return null;
 
   return (
-    <div
-      className="modal-overlay"
-      onClick={onClose}
-    >
-      <div
-        className="modal-content"
-        onClick={(e) => e.stopPropagation()}
+    <div className="notification-modal-overlay" onClick={onClose}>
+      <section
+        className="notification-modal"
+        onClick={(event) => event.stopPropagation()}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="notifications-title"
       >
-        <div className="modal-header">
+        <div className="notification-modal-header">
           <div>
-            <h3>Notificações</h3>
-            <span>3 não lidas</span>
+            <h3 id="notifications-title">Notificações</h3>
+            <span>{unreadCount ? `${unreadCount} não ${unreadCount === 1 ? 'lida' : 'lidas'}` : 'Você está em dia'}</span>
           </div>
 
-          <div className="modal-actions">
-            <button className="btn-check-all">
-              Marcar todas
-            </button>
-
-            <button
-              className="btn-close"
-              onClick={onClose}
-            >
-              ✕
-            </button>
+          <div className="notification-modal-actions">
+            {unreadCount > 0 && (
+              <button className="btn-check-all" onClick={onMarkAllAsRead}>
+                Marcar todas como lidas
+              </button>
+            )}
+            <button className="btn-close" onClick={onClose} aria-label="Fechar notificações">×</button>
           </div>
         </div>
 
         <div className="notifications-list">
           {notifications.map((notification) => (
-            <NotificationItem
-              key={notification.id}
-              notification={notification}
-            />
+            <NotificationItem key={notification.id} notification={notification} onMarkAsRead={onMarkAsRead} />
           ))}
         </div>
 
-        <div className="modal-footer">
-          <button className="btn-view-all">
-            Ver todas as notificações
-          </button>
+        <div className="notification-modal-footer">
+          <span>Toque em uma notificação para marcá-la como lida.</span>
         </div>
-      </div>
+      </section>
     </div>
   );
 }
