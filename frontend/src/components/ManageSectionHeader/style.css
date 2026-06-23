@@ -1,0 +1,65 @@
+.manager-section-header {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+
+  padding: 16px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+.manager-section-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.manager-section-info h1 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.manager-section-info p {
+  margin: 6px 0 0;
+  font-size: 14px;
+  color: #64748b;
+}
+
+.manager-section-button {
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 8px 12px;
+  border: none;
+  border-radius: 12px;
+
+  background: #16a34a;
+  color: #ffffff;
+
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.manager-section-icon {
+  width: 14px;
+  height: 14px;
+}
+
+@media (max-width: 380px) {
+  .manager-section-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .manager-section-button {
+    width: 100%;
+    justify-content: center;
+  }
+}

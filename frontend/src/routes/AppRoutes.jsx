@@ -12,6 +12,7 @@ import MessageDetailScreen from '../pages/MessageDetailScreen/MessageDetailScree
 import ProfileScreen from '../pages/ProfileScreen/ProfileScreen';
 import CartScreen from '../pages/CartScreen/CartScreen';
 import ProducerDashboard from '../pages/ProducerDashboard/ProducerDashboard';
+import ProducerManagerPlans from '../pages/ProducerManagerPlans/ProducerManagerPlans';
 export default function AppRoutes() {
   return (
     <Routes>
@@ -28,6 +29,7 @@ export default function AppRoutes() {
       <Route path="/perfil" element={<ProfileScreen />} />
       <Route path="/carrinho/:hortaId" element={<CartScreen />} />
       <Route path="/producer-dashboard" element={<ProducerDashboard />} />
+      <Route path="/produtor/gerenciar-planos" element={<ProducerManagerPlans />} />
     </Routes>
   );
 }

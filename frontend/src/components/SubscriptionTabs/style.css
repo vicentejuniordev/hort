@@ -1,0 +1,56 @@
+.subscription-tabs-container {
+    width: 100%;
+    max-width: 768px;
+
+    margin: 0 auto;
+    padding: 0 16px;
+
+    box-sizing: border-box;
+}
+
+.subscription-tabs {
+    display: flex;
+    align-items: center;
+
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.subscription-tab {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 16px 20px;
+
+    border: none;
+    border-bottom: 2px solid transparent;
+
+    background: transparent;
+
+    color: #64748b;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+.subscription-tab:hover {
+    color: #334155;
+}
+
+.subscription-tab.active {
+    color: #15803d;
+    border-bottom-color: #16a34a;
+}
+
+.subscription-tab-icon {
+    width: 16px;
+    height: 16px;
+}
+
+span{
+    color: #64748b;
+}
