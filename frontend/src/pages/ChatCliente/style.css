@@ -1,6 +1,6 @@
 @import url('../../styles/global.css');
 
-.messages-screen { min-height: 100vh; padding-bottom: 6rem; background: #f7faf7; }
+.messages-screen { min-height: 100vh; padding-bottom: 6rem; background: #f7faf7; }.messages-main { min-width: 0; flex: 1; }.messages-screen--producer { display: flex; }
 .messages-content { width: min(100% - 2rem, 46rem); margin: 0 auto; padding: 1.25rem 0; }
 .messages-header { display: flex; align-items: center; justify-content: space-between; margin: -0.5rem 0 1rem; }
 .messages-header p { color: #20883a; font-size: 0.625rem; font-weight: 700; letter-spacing: .12em; }
@@ -8,3 +8,12 @@
 .messages-screen .search-container { margin-bottom: 1rem; }
 .messages-screen .filter-tabs { margin-bottom: 1rem; }
 .messages-empty { padding: 2rem; color: #718076; text-align: center; }
+
+@media (min-width: 46.0625rem) {
+  .messages-screen--producer { padding-bottom: 2rem; }
+  .messages-screen--producer .messages-content { width: min(100% - 4rem, 46rem); padding-top: 2rem; }
+}
+
+@media (max-width: 46rem) {
+  .messages-screen--producer { display: block; }
+}

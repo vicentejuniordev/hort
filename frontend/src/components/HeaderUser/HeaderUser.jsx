@@ -1,4 +1,5 @@
 import profileIcon from '../../assets/icons/profile-icon.png';
+import producerIcon from '../../assets/icons/productor-icon.png';
 import './style.css';
 import notificationsIcon from '../../assets/icons/notificacao.png';
 import localIcon from '../../assets/icons/localizacao.png';
@@ -12,12 +13,17 @@ const INITIAL_NOTIFICATIONS = [
     { id: 3, title: 'Oferta especial', message: 'Aproveite 20% de desconto na sua próxima cesta.', time: 'Há 2 horas', read: true, icon: '🎉' },
 ];
 
-export default function HeaderUser() {
+export default function HeaderUser({ variant = 'client' }) {
 
     const [openModal, setOpenModal] = useState(false);
     const [notifications, setNotifications] = useState(INITIAL_NOTIFICATIONS);
     const currentUser = getCurrentUser();
     const firstName = currentUser?.name?.trim().split(' ')[0] || 'Visitante';
+    const isProducer = variant === 'producer';
+    const displayName = isProducer ? (currentUser?.name?.trim() || 'Sua horta') : firstName;
+    const accountLabel = isProducer
+        ? (currentUser?.cnpj ? `CNPJ: ${currentUser.cnpj}` : 'Conta de produtor')
+        : 'Rua das Flores, 123';
     const unreadCount = notifications.filter((notification) => !notification.read).length;
 
     function markAllAsRead() {
@@ -32,13 +38,13 @@ export default function HeaderUser() {
 
     return (
         <>
-        <header className="header-user">
+        <header className={`header-user ${isProducer ? 'header-user--producer' : ''}`}>
             <div className="header-user-container">
                 <div className="user-info-container">
-                <img className='user-avatar' src={profileIcon} alt="Perfil" />
+                <img className='user-avatar' src={isProducer ? producerIcon : profileIcon} alt={isProducer ? 'Horta' : 'Perfil'} />
                 <div className="header-user-info">
-                    <p className="header-greeting">Olá, {firstName}! 👋</p>
-                    <p>Bem-vindo(a)!</p>
+                    <p className="header-greeting">Olá, {displayName}! 👋</p>
+                    <p>{isProducer ? 'Painel da sua horta' : 'Bem-vindo(a)!'}</p>
                 </div>
             </div>
                <div     className='notifications-container'>
@@ -54,7 +60,7 @@ export default function HeaderUser() {
             </div>
             <div className="header-user-bottom">
                 <img id='img-local' src={localIcon} alt="Localização" className="img-profile" />
-                <p>Rua das Flores, 123</p>
+                <p>{accountLabel}</p>
             </div>
             <hr className="header-user-hr" />
         </header>

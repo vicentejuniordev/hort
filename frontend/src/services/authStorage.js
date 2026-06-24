@@ -11,14 +11,37 @@ function getStoredUsers() {
 }
 
 function setCurrentUser(user) {
-  const { id, name, email, role = 'client' } = user;
-  localStorage.setItem(CURRENT_USER_STORAGE_KEY, JSON.stringify({ id, name, email, role }));
+  const {
+    id,
+    name,
+    email,
+    phone = null,
+    cnpj = null,
+    role = 'client',
+  } = user;
+  localStorage.setItem(CURRENT_USER_STORAGE_KEY, JSON.stringify({
+    id,
+    name,
+    email,
+    phone,
+    cnpj,
+    role,
+  }));
 }
 
 export function getCurrentUser() {
   try {
     const storedUser = localStorage.getItem(CURRENT_USER_STORAGE_KEY);
-    return storedUser ? JSON.parse(storedUser) : null;
+    if (!storedUser) return null;
+
+    const currentUser = JSON.parse(storedUser);
+    const persistedUser = getStoredUsers().find((user) => user.id === currentUser.id);
+
+    return {
+      ...currentUser,
+      phone: currentUser.phone ?? persistedUser?.phone ?? null,
+      cnpj: currentUser.cnpj ?? persistedUser?.cnpj ?? null,
+    };
   } catch {
     return null;
   }

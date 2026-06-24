@@ -11,6 +11,8 @@ import telephoneIcon from '../../assets/icons/telefone.png';
 import senhaIcon from '../../assets/icons/senha.png';
 import { registerUser } from '../../services/authStorage';
 import BackButton from '../../components/BackButton/BackButton';
+import { PackageCheck, ShieldCheck, Sprout, Users } from 'lucide-react';
+import '../RegisterProducer/style.css';
 
 export default function RegisterUser() {
   const navigate = useNavigate();
@@ -108,14 +110,34 @@ export default function RegisterUser() {
   };
 
   return (
-    <main className="register-user">
-        <BackButton to="/selecionar-perfil" />
-        <img src={logo} alt="Logo HORT" className="img-logo" />
+    <main className="register-producer register-user">
+        <div className="register-producer__back"><BackButton to="/selecionar-perfil" /></div>
+        <div className="register-producer__shell">
+          <aside className="register-producer__presentation">
+            <span className="register-producer__presentation-mark"><Sprout size={24} /></span>
+            <div>
+              <p className="register-producer__eyebrow">PARA QUEM ASSINA</p>
+              <h1>Frescor da horta direto para sua casa.</h1>
+              <p className="register-producer__description">Crie sua conta para descobrir hortas locais e receber cestas de frutas e verduras do seu jeito.</p>
+            </div>
+            <ul className="register-producer__benefits">
+              <li><span><PackageCheck size={18} /></span> Cestas personalizadas</li>
+              <li><span><Users size={18} /></span> Produtores locais de confiança</li>
+              <li><span><Sprout size={18} /></span> Produtos frescos toda semana</li>
+            </ul>
+            <div className="register-producer__numbers" aria-label="Benefícios para clientes">
+              <div><strong>+30</strong><span>hortas parceiras</span></div>
+              <div><strong>100%</strong><span>produtos selecionados</span></div>
+            </div>
+          </aside>
 
-        <div className="container">
-            <h1 className="title">Crie sua Conta</h1>
-            <p className="subtitle">Prepare-se para produtos frescos e saudáveis</p>
-            <form className="form" noValidate onSubmit={handleSubmit}>
+          <section className="register-producer__card">
+            <header>
+              <img src={logo} alt="Hort" className="register-producer__card-logo" />
+              <h2>Crie sua conta</h2>
+              <p>Prepare-se para produtos frescos e saudáveis.</p>
+            </header>
+            <form className="register-producer__form" noValidate onSubmit={handleSubmit}>
                 <InputForm
                     type="text"
                     placeholder="Nome Completo"
@@ -182,7 +204,7 @@ export default function RegisterUser() {
                     error={errors.confirmPassword}
                     autoComplete="new-password"
                 />
-                <label htmlFor="terms" className="terms">
+                <label htmlFor="terms" className="register-producer__terms">
                     <input
                         type="checkbox"
                         id="terms"
@@ -193,20 +215,19 @@ export default function RegisterUser() {
                         aria-invalid={Boolean(errors.terms)}
                         aria-describedby={errors.terms ? 'terms-error' : undefined}
                     />
-                    <span className="checkbox-label">Eu concordo com os <span>termos e condições</span></span>
+                    <span>Eu concordo com os <strong>termos e condições</strong></span>
                 </label>
-                {errors.terms && <span id="terms-error" className="terms-error">{errors.terms}</span>}
-                <StartButton title="Registrar" type="submit" />
-                {submissionError && <p className="form-error" role="alert">{submissionError}</p>}
-                <div className="login-others">
-                    <hr />
-                    <p className="login-others-text"> Ou continue com</p>
-                    <hr/>
-        
+                {errors.terms && <p id="terms-error" className="producer-form-error">{errors.terms}</p>}
+                {submissionError && <p className="producer-form-error" role="alert">{submissionError}</p>}
+                <div className="register-producer__submit"><StartButton title="Criar minha conta" type="submit" /></div>
+                <div className="register-producer__social-divider">
+                    <span /> <p>Ou continue com</p> <span />
                 </div>
                 <LoginOther />
+                <p className="register-producer__security"><ShieldCheck size={15} /> Seus dados são protegidos e usados apenas para sua conta.</p>
             </form>
-        </div>  
+          </section>
+        </div>
         {isValidated && (
           <div className="success-modal-backdrop" role="presentation">
             <section className="success-modal" role="dialog" aria-modal="true" aria-labelledby="success-title">

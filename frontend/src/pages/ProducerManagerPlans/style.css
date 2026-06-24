@@ -1,25 +1,14 @@
-.producer-manager-plans {
-  min-height: 100vh;
-  background: #f8fafc;
-  padding-bottom: 90px;
-}
+@import url('../../styles/global.css');
 
-.producer-manager-content {
-  width: 100%;
-  max-width: 768px;
-  margin: 0 auto;
-  padding: 16px;
-  box-sizing: border-box;
-}
-
-.plans-list {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.products-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-}
+.producer-manager-plans { display: flex; min-height: 100dvh; padding-bottom: 5.75rem; color: #213529; background: #f4f8f5; }.producer-manager-page { min-width: 0; flex: 1; }
+.producer-manager-header, .producer-manager-plans .subscription-tabs-container, .producer-manager-content { width: min(100% - 2rem, 76rem); margin: 0 auto; }.producer-manager-header { padding-top: 1rem; }.producer-manager-header .basket-header { margin-bottom: 0; padding: .25rem 0 .9rem; border-bottom: 1px solid #dfeae1; }.producer-manager-header .basket-header h1 { color: #253b2a; font-size: clamp(1.1rem, 2.5vw, 1.35rem); }.producer-manager-header .basket-header-add { background: #2d974e; }.producer-manager-header .basket-header-add:hover { background: #237c40; }
+.producer-manager-plans .subscription-tabs-container { margin-top: 1.25rem; }.producer-manager-content { padding: 0 0 2.5rem; box-sizing: border-box; }.producer-manager-content .manager-section-header { align-items: center; padding: 1.75rem 0 1rem; margin: 0; }.producer-manager-content .manager-section-info h1 { color: #26392b; font-size: 1.2rem; letter-spacing: -.025em; }.producer-manager-content .manager-section-info p { margin-top: .3rem; color: #77877b; font-size: .78rem; }
+.producer-manager-overview { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .75rem; width: min(100% - 2rem, 76rem); margin: 1rem auto 0; }.producer-manager-overview__item { display: flex; align-items: center; gap: .65rem; padding: .8rem .9rem; border: 1px solid #dfeae1; border-radius: .8rem; background: linear-gradient(135deg, #fff, #f6fbf7); box-shadow: 0 .35rem .8rem rgb(23 70 34 / 4%); }.producer-manager-overview__icon { display: grid; width: 2.25rem; height: 2.25rem; place-items: center; flex: 0 0 auto; border-radius: .65rem; color: #278244; background: #e6f6e9; }.producer-manager-overview__item div { display: grid; min-width: 0; gap: .05rem; }.producer-manager-overview__item strong { color: #24482e; font-size: 1rem; }.producer-manager-overview__item small { overflow: hidden; color: #718075; font-size: .68rem; text-overflow: ellipsis; white-space: nowrap; }
+.plans-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }.products-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; }
+.producer-manager-empty { display: grid; min-height: 19rem; place-items: center; align-content: center; padding: 2rem; border: 1px dashed #b9ddc0; border-radius: 1rem; color: #6b806f; background: #fff; text-align: center; }.producer-manager-empty svg { color: #30aa4c; }.producer-manager-empty h2 { margin: .85rem 0 .3rem; color: #31523a; font-size: 1.1rem; }.producer-manager-empty p { max-width: 25rem; font-size: .84rem; line-height: 1.5; }.producer-manager-empty button { margin-top: 1rem; padding: .7rem 1rem; border: 0; border-radius: .65rem; color: #fff; background: #30aa4c; cursor: pointer; font: inherit; font-size: .82rem; font-weight: 700; }
+.producer-manager-overlay { position: fixed; z-index: 200; inset: 0; display: grid; place-items: center; padding: 1rem; background: rgb(20 51 29 / 52%); backdrop-filter: blur(4px); }.producer-manager-dialog, .producer-confirm-dialog { width: min(100%, 31rem); max-height: min(90dvh, 42rem); overflow: auto; padding: 1.5rem; border: 1px solid #e0eae2; border-radius: 1rem; background: #fff; box-shadow: 0 1.5rem 3.5rem rgb(0 0 0 / 24%); }.producer-manager-dialog header { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; }.producer-manager-dialog header p { color: #298847; font-size: .65rem; font-weight: 700; letter-spacing: .1em; }.producer-manager-dialog header h2 { margin-top: .25rem; color: #253b2a; font-size: 1.3rem; }.producer-dialog-close { display: grid; width: 2.25rem; height: 2.25rem; place-items: center; border: 0; border-radius: .65rem; color: #397047; background: #edf7ef; cursor: pointer; }.producer-manager-dialog form { display: grid; gap: .45rem; margin-top: 1.35rem; }.producer-manager-dialog label { color: #3d5744; font-size: .78rem; font-weight: 700; }.producer-manager-dialog input, .producer-manager-dialog textarea { width: 100%; box-sizing: border-box; padding: .7rem .75rem; border: 1px solid #d3e5d6; border-radius: .6rem; outline: 0; color: #2f4936; background: #fcfefc; font: inherit; font-size: .86rem; resize: vertical; }.producer-manager-dialog input:focus, .producer-manager-dialog textarea:focus { border-color: #30aa4c; box-shadow: 0 0 0 3px rgb(48 170 76 / 13%); }.producer-dialog-fields { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; margin-top: .25rem; }.producer-dialog-fields--single { grid-template-columns: 1fr; max-width: calc(50% - .375rem); }.producer-dialog-fields label { display: grid; gap: .4rem; }.producer-dialog-error { margin-top: .3rem; color: #bd2b2b; font-size: .75rem; }.producer-manager-dialog footer { display: flex; justify-content: flex-end; gap: .65rem; margin-top: .8rem; }.producer-manager-dialog footer button, .producer-confirm-dialog button { min-height: 2.6rem; padding: .55rem .9rem; border-radius: .6rem; cursor: pointer; font: inherit; font-size: .8rem; font-weight: 700; }.producer-dialog-cancel, .producer-confirm-dialog button:first-child { border: 1px solid #d7e5d9; color: #506856; background: #fff; }.producer-dialog-save { border: 1px solid #30aa4c; color: #fff; background: #30aa4c; }.producer-confirm-dialog { text-align: center; }.producer-confirm-dialog__icon { display: grid; width: 3rem; height: 3rem; margin: 0 auto .9rem; place-items: center; border-radius: 50%; color: #bd6a14; background: #fff3dc; }.producer-confirm-dialog h2 { color: #293b2e; font-size: 1.2rem; }.producer-confirm-dialog p { margin: .7rem 0 1.25rem; color: #67766b; font-size: .83rem; line-height: 1.5; }.producer-confirm-dialog div { display: flex; justify-content: center; gap: .6rem; }.producer-confirm-dialog button:last-child { border: 1px solid #d63a3a; color: #fff; background: #d63a3a; }
+@media (min-width: 46.0625rem) { .producer-manager-plans { padding-bottom: 2rem; } }
+@media (max-width: 62rem) { .products-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 38rem) { .producer-manager-overview { gap: .5rem; }.producer-manager-overview__item { padding: .65rem; }.producer-manager-overview__icon { width: 2rem; height: 2rem; }.producer-manager-overview__item small { font-size: .61rem; }.plans-list, .products-grid { grid-template-columns: 1fr; }.producer-manager-content .manager-section-header { padding-top: 1.3rem; }.producer-manager-dialog, .producer-confirm-dialog { padding: 1.15rem; }.producer-manager-dialog footer { flex-direction: column-reverse; }.producer-manager-dialog footer button { width: 100%; } }
+@media (max-width: 23rem) { .producer-manager-header, .producer-manager-plans .subscription-tabs-container, .producer-manager-content, .producer-manager-overview { width: min(100% - 1.5rem, 76rem); }.producer-manager-overview { grid-template-columns: 1fr; }.producer-manager-overview__item small { font-size: .68rem; }.producer-dialog-fields, .producer-dialog-fields--single { grid-template-columns: 1fr; max-width: none; } }
+@media (max-width: 46rem) { .producer-manager-plans { display: block; } }

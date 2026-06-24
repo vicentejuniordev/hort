@@ -1,102 +1,90 @@
-import { useNavigate } from 'react-router-dom';
-import { ChevronRight, ArrowLeft, User, CreditCard, BarChart2, Bell, MapPin, Shield, HelpCircle, LogOut, Star, ShoppingBasket, Users } from 'lucide-react';
-import BottomNavigation from '../../components/BottomNavigation/BottomNavigation';
-import './style.css';
+import { ArrowLeft, BarChart3, Bell, ChevronRight, CreditCard, Leaf, LogOut, MapPin, Pencil, Settings, ShoppingBasket, Users } from "lucide-react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import productorIcon from "../../assets/icons/productor-icon.png";
+import ProducerBottomNavigation from "../../components/ProducerBottomNavigation/ProducerBottomNavigation";
+import ProducerSidebar from "../../components/ProducerSidebar/ProducerSidebar";
+import { getCurrentUser, logoutUser, updateCurrentUser } from "../../services/authStorage";
+import "./style.css";
 
-const stats = [
-  { icon: <Users size={22} strokeWidth={1.5} />, value: '148', label: 'Clientes' },
-  { icon: <Star size={22} strokeWidth={1.5} />, value: '4.9', label: 'Avaliação' },
-  { icon: <ShoppingBasket size={22} strokeWidth={1.5} />, value: '32', label: 'Cestas' },
+const managementItems = [
+  { icon: Leaf, title: "Minha horta", subtitle: "Dados da horta e perfil público" },
+  { icon: CreditCard, title: "Pagamentos", subtitle: "Métodos e histórico financeiro" },
+  { icon: BarChart3, title: "Estatísticas de vendas", subtitle: "Desempenho de pedidos e cestas" },
 ];
 
-const gestao = [
-  { icon: <User size={18} strokeWidth={1.5} />, title: 'Minha Conta Hort', subtitle: 'Dados da horta e perfil público' },
-  { icon: <CreditCard size={18} strokeWidth={1.5} />, title: 'Configurações de Pagamento', subtitle: 'Métodos e histórico financeiro' },
-  { icon: <BarChart2 size={18} strokeWidth={1.5} />, title: 'Estatísticas de Vendas', subtitle: 'Desempenho e análise de pedidos' },
+const accountItems = [
+  { icon: Bell, title: "Notificações", subtitle: "Alertas de pedidos e mensagens", badge: 4 },
+  { icon: MapPin, title: "Área de entrega", subtitle: "Regiões e raio de cobertura" },
+  { icon: Settings, title: "Configurações", subtitle: "Preferências da conta" },
 ];
 
-const conta = [
-  { icon: <Bell size={18} strokeWidth={1.5} />, title: 'Notificações', subtitle: 'Alertas de pedidos e mensagens', badge: 4 },
-  { icon: <MapPin size={18} strokeWidth={1.5} />, title: 'Área de Entrega', subtitle: 'Regiões e raio de cobertura' },
-  { icon: <Shield size={18} strokeWidth={1.5} />, title: 'Privacidade e Segurança', subtitle: 'Senha, dados e permissões' },
-  { icon: <HelpCircle size={18} strokeWidth={1.5} />, title: 'Ajuda e Suporte', subtitle: 'Central de ajuda e contato' },
-];
-
-function MenuSection({ title, items }) {
+function MenuSection({ title, items, onEdit }) {
   return (
-    <div className="profile-section">
-      <p className="profile-section-label">{title}</p>
-      <div className="profile-menu-group">
-        {items.map((item, idx) => (
-          <button className="profile-menu-item" key={idx}>
-            <div className="profile-menu-icon">{item.icon}</div>
-            <div className="profile-menu-text">
-              <span className="profile-menu-title">
-                {item.title}
-                {item.badge && <span className="profile-badge">{item.badge}</span>}
-              </span>
-              <span className="profile-menu-subtitle">{item.subtitle}</span>
-            </div>
-            <ChevronRight size={16} color="#94a3b8" />
+    <section className="client-profile-section">
+      <p>{title}</p>
+      <div className="client-profile-menu-group">
+        {items.map(({ icon: Icon, title: itemTitle, subtitle, badge }) => (
+          <button key={itemTitle} type="button" onClick={() => itemTitle === "Minha horta" && onEdit()}>
+            <span className="client-profile-menu-icon"><Icon size={18} strokeWidth={1.7} /></span>
+            <span className="client-profile-menu-text"><strong>{itemTitle}{badge && <i>{badge}</i>}</strong><small>{subtitle}</small></span>
+            <ChevronRight size={16} />
           </button>
         ))}
       </div>
-    </div>
+    </section>
   );
 }
 
 export default function ProducerProfile() {
   const navigate = useNavigate();
+  const [user, setUser] = useState(() => getCurrentUser());
+  const [editing, setEditing] = useState(false);
+  const [name, setName] = useState(user?.name || "Sua horta");
+  const [phone, setPhone] = useState(user?.phone || "");
+
+  function handleSave(event) {
+    event.preventDefault();
+    const updatedUser = updateCurrentUser({ name, phone });
+    if (updatedUser) setUser(updatedUser);
+    setEditing(false);
+  }
+
+  function handleLogout() { logoutUser(); navigate("/login"); }
+
   return (
-    <div className="profile-screen">
-      <div className="profile-header">
-        <button className="profile-back-btn" onClick={() => navigate(-1)}>
-          <ArrowLeft size={20} />
-        </button>
-        <h1 className="profile-title">Perfil</h1>
+    <div className="client-profile-page">
+      <ProducerSidebar activeItem="profile" />
+      <div className="client-profile-main">
+        <header className="client-profile-header">
+          <button type="button" onClick={() => navigate("/produtor")} aria-label="Voltar"><ArrowLeft size={20} /></button>
+          <h1>Perfil da horta</h1>
+        </header>
+
+        <main className="client-profile-content">
+          <section className="client-profile-card">
+            <img src={productorIcon} alt="" />
+            <div><h2>{user?.name || "Sua horta"}</h2><p>{user?.email || "Entre para acessar sua conta"}</p><span>Produtor verificado</span></div>
+            <button type="button" onClick={() => setEditing(true)} aria-label="Editar perfil"><Pencil size={17} /></button>
+          </section>
+
+          <section className="client-profile-stats" aria-label="Resumo da horta">
+            <div><Users size={21} /><strong>148</strong><span>Clientes</span></div>
+            <div><ShoppingBasket size={21} /><strong>32</strong><span>Cestas ativas</span></div>
+            <div><BarChart3 size={21} /><strong>4,9</strong><span>Avaliação</span></div>
+          </section>
+
+          <MenuSection title="GESTÃO" items={managementItems} onEdit={() => setEditing(true)} />
+          <MenuSection title="CONTA" items={accountItems} onEdit={() => setEditing(true)} />
+
+          <button className="client-profile-logout" type="button" onClick={handleLogout}><span><LogOut size={18} /></span><div><strong>Sair da conta</strong><small>Encerrar sessão neste dispositivo</small></div><ChevronRight size={16} /></button>
+          <p className="client-profile-footer">HORT © 2026 · v1.5.0</p>
+        </main>
       </div>
-      <div className="profile-content">
-        <div className="profile-card">
-          <div className="profile-card-info">
-            <div className="profile-avatar-placeholder" />
-            <div className="profile-card-text">
-              <p className="profile-name">Horta Nossa Senhora da Guia</p>
-              <p className="profile-email">hort@gmail.com</p>
-              <div className="profile-badges">
-                <span className="badge badge-verified">✓ Produtor Verificado</span>
-                <span className="badge badge-top">🌿 Top Produtor</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="profile-stats">
-          {stats.map((s, i) => (
-            <div className="profile-stat-item" key={i}>
-              <div className="profile-stat-icon">{s.icon}</div>
-              <p className="profile-stat-value">{s.value}</p>
-              <p className="profile-stat-label">{s.label}</p>
-            </div>
-          ))}
-        </div>
-        <MenuSection title="GESTÃO" items={gestao} />
-        <MenuSection title="CONTA" items={conta} />
-        <div className="profile-section">
-          <div className="profile-menu-group">
-            <button className="profile-menu-item profile-logout">
-              <div className="profile-menu-icon profile-logout-icon">
-                <LogOut size={18} strokeWidth={1.5} />
-              </div>
-              <div className="profile-menu-text">
-                <span className="profile-menu-title">Sair da conta</span>
-                <span className="profile-menu-subtitle">Encerrar sessão</span>
-              </div>
-              <ChevronRight size={16} color="#ef4444" />
-            </button>
-          </div>
-        </div>
-        <p className="profile-footer">HORT © 2026 · v1.5.0</p>
-      </div>
-      <BottomNavigation activeItem="profile" setIsSidebarOpen={() => {}} />
+
+      <ProducerBottomNavigation activeItem="profile" />
+
+      {editing && <div className="client-profile-modal-overlay" onMouseDown={() => setEditing(false)}><form className="client-profile-modal" onSubmit={handleSave} onMouseDown={(event) => event.stopPropagation()}><h2>Editar dados da horta</h2><label>Nome da horta<input value={name} onChange={(event) => setName(event.target.value)} required /></label><label>Telefone<input value={phone} onChange={(event) => setPhone(event.target.value)} placeholder="(00) 00000-0000" /></label><div><button type="button" onClick={() => setEditing(false)}>Cancelar</button><button type="submit">Salvar</button></div></form></div>}
     </div>
   );
 }

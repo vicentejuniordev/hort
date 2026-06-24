@@ -7,6 +7,7 @@ export default function ManagerSectionHeader({
   itemName,
   buttonLabel = "Adicionar",
   onAdd,
+  showButton = true,
 }) {
   const isPlural = count !== 1;
 
@@ -22,13 +23,16 @@ export default function ManagerSectionHeader({
         </p>
       </div>
 
-      <button
-        className="manager-section-button"
-        onClick={onAdd}
-      >
-        <Plus className="manager-section-icon" />
-        {buttonLabel}
-      </button>
+      {showButton && (
+        <button
+          type="button"
+          className="manager-section-button"
+          onClick={onAdd}
+        >
+          <Plus className="manager-section-icon" />
+          {buttonLabel}
+        </button>
+      )}
     </div>
   );
 }

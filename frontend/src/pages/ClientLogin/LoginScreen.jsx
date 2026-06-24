@@ -31,7 +31,7 @@ export default function LoginScreen({ onVoltar, onFazerLogin, onCriarConta }) {
     }
 
     onFazerLogin?.(user);
-    navigate(user.role === 'producer' ? '/producer-dashboard' : '/home-client');
+    navigate(user.role === 'producer' ? '/produtor' : '/home-client');
   };
 
   return (

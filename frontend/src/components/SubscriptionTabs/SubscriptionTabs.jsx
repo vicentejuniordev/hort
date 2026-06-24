@@ -15,7 +15,7 @@ export default function SubscriptionTabs({
           onClick={() => setActiveTab("planos")}
         >
           <Package className="subscription-tab-icon" />
-          <span>Planos Ativos</span>
+          <span>Planos</span>
         </button>
 
         <button
@@ -25,7 +25,7 @@ export default function SubscriptionTabs({
           onClick={() => setActiveTab("produtos")}
         >
           <Sprout className="subscription-tab-icon" />
-          <span>Hortaliças Ativas</span>
+          <span>Hortaliças</span>
         </button>
       </div>
     </div>

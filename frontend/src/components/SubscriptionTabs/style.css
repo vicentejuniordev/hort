@@ -1,56 +1,47 @@
 .subscription-tabs-container {
     width: 100%;
-    max-width: 768px;
-
-    margin: 0 auto;
-    padding: 0 16px;
-
     box-sizing: border-box;
 }
 
 .subscription-tabs {
-    display: flex;
-    align-items: center;
-
-    border-bottom: 1px solid #e2e8f0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.35rem;
+    width: 100%;
+    padding: 0.3rem;
+    box-sizing: border-box;
+    border: 1px solid #dce9de;
+    border-radius: 0.85rem;
+    background: #fff;
 }
 
 .subscription-tab {
     display: flex;
+    min-width: 0;
     align-items: center;
-    gap: 8px;
-
-    padding: 16px 20px;
-
-    border: none;
-    border-bottom: 2px solid transparent;
-
+    justify-content: center;
+    gap: 0.45rem;
+    min-height: 2.75rem;
+    padding: 0.55rem 0.75rem;
+    border: 0;
+    border-radius: 0.6rem;
+    color: #63766a;
     background: transparent;
-
-    color: #64748b;
-
-    font-size: 14px;
-    font-weight: 600;
-
     cursor: pointer;
-
-    transition: all 0.2s ease;
+    font: inherit;
+    font-size: 0.82rem;
+    font-weight: 600;
+    transition: background-color 160ms ease, color 160ms ease;
 }
 
-.subscription-tab:hover {
-    color: #334155;
-}
+.subscription-tab span { color: #63766a; }
+.subscription-tab:hover { color: #287c43; background: #f3faf4; }
+.subscription-tab:hover span { color: #287c43; }
+.subscription-tab.active { color: #176f36; background: #dff4e3; }
+.subscription-tab.active span { color: #176f36; font-weight: 700; }
+.subscription-tab-icon { width: 1rem; height: 1rem; flex: 0 0 auto; }
+.subscription-tab span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
-.subscription-tab.active {
-    color: #15803d;
-    border-bottom-color: #16a34a;
-}
-
-.subscription-tab-icon {
-    width: 16px;
-    height: 16px;
-}
-
-span{
-    color: #64748b;
+@media (max-width: 21rem) {
+    .subscription-tab { gap: 0.3rem; padding-inline: 0.4rem; font-size: 0.75rem; }
 }

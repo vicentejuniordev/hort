@@ -50,6 +50,14 @@
   color: #333;
 }
 
+.message-detail {
+  display: block;
+  margin-top: 0.1rem;
+  color: #4d8b5d;
+  font-size: 0.68rem;
+  font-weight: 600;
+}
+
 .message-item .content p {
   font-size: 13px;
   color: #666;

@@ -9,10 +9,11 @@ import BasketScreen from '../pages/BasketScreen/BasketScreen';
 import ViewHorta from '../pages/ViewHorta/ViewHorta';
 import ChatCliente from '../pages/ChatCliente/ChatCliente';
 import MessageDetailScreen from '../pages/MessageDetailScreen/MessageDetailScreen';
-import ProfileScreen from '../pages/ProfileScreen/ProfileScreen';
+import ClientProfile from '../pages/ClientProfile/ClientProfile';
 import CartScreen from '../pages/CartScreen/CartScreen';
 import ProducerDashboard from '../pages/ProducerDashboard/ProducerDashboard';
 import ProducerManagerPlans from '../pages/ProducerManagerPlans/ProducerManagerPlans';
+import ProducerProfile from '../pages/ProducerProfile/ProducerProfile';
 export default function AppRoutes() {
   return (
     <Routes>
@@ -26,10 +27,13 @@ export default function AppRoutes() {
       <Route path="/view-horta/:id?" element={<ViewHorta />} />
       <Route path="/mensagens" element={<ChatCliente />} />
       <Route path="/mensagens/:id" element={<MessageDetailScreen />} />
-      <Route path="/perfil" element={<ProfileScreen />} />
+      <Route path="/perfil" element={<ClientProfile />} />
       <Route path="/carrinho/:hortaId" element={<CartScreen />} />
-      <Route path="/producer-dashboard" element={<ProducerDashboard />} />
+      <Route path="/produtor" element={<ProducerDashboard />} />
       <Route path="/produtor/gerenciar-planos" element={<ProducerManagerPlans />} />
+      <Route path="/produtor/mensagens" element={<ChatCliente />} />
+      <Route path="/produtor/mensagens/:id" element={<MessageDetailScreen />} />
+      <Route path="/produtor/perfil" element={<ProducerProfile />} />
     </Routes>
   );
 }
